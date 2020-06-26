@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller's Net Sheet Calculator</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container  d-flex justify-content-center">
+
+        <div class="main-form-wrapper d-flex justify-content-center flex-column">
+
+            <div class="indicator-wrapper">
+                <button class="indicator-btn indicator-active" id="indicator-btn-1" data-tabindex="1">1</button>
+                <button class="indicator-btn" id="indicator-btn-2" data-tabindex="2">2</button>
+                <button class="indicator-btn" id="indicator-btn-3" data-tabindex="3">3</button>
+                <button class="indicator-btn" id="indicator-btn-4" data-tabindex="4">4</button>
+            </div>
+
+            <form class="d-flex flex-column" id="net_sheet_form">
+                <div class="section-wrapper">
+
+                    <div class="calc-section" id="section-1">
+                        <div class="section-header">
+                            <h3>General Information</h3>
+                        </div>
+                        <div class="basic-info-wrapper">
+                            <div class="input-wrapper wide-input">
+                                <label for="prepared-by">Prepared By</label>
+                                <div class="field-wrapper">
+                                    <input name="prepared-by" type="text" id="prepared-by" placeholder="Prepared by">
+                                    <span class="input-icon text-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper wide-input">
+                                <label for="seller-name">Seller Name</label>
+                                <div class="field-wrapper">
+                                    <input name="seller-name " type="text" id="seller-name" placeholder="Seller name">
+                                    <span class="input-icon text-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper wide-input">
+                                <label for="property-address">Property Address</label>
+                                <div class="field-wrapper">
+                                    <input name="property-address" type="text" id="property-address"
+                                        placeholder="Enter address">
+                                    <span class="input-icon text-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper select-wrapper wide-input">
+                                <label for="select-county">Select County</label>
+                                <div class="field-wrapper">
+                                    <select name="select-county" id="select-county"></select>
+                                    <span class="input-icon down-arrow-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="amount-info-wrapper">
+                            <div class="input-wrapper">
+                                <label for="sale-price">Sale Price</label>
+
+                                <div class="field-wrapper">
+                                    <input name="sale-price" type="number" id="sale-pcire">
+                                    <span class="input-icon dollar-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper date-wrapper">
+                                <label for="closing-date">Closing Date</label>
+
+                                <div class="field-wrapper">
+                                    <input name="closing-date" type="date" id="closing-date" data-toggle="tooltip"
+                                        data-placement="top" title="Click the calendar icon to enable date-picker">
+                                    <span class="input-icon calendar-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <label for="annual-tax">Annual Property Tax</label>
+                                <div class="field-wrapper">
+                                    <input name="annual-tax" type="number" id="annual-tax">
+                                    <span class="input-icon dollar-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <label for="pro-ration-due">Tax Proration Due at Closing for</label>
+                                <div class="field-wrapper">
+                                    <input name="pro-ration-due" type="number" id="pro-ration-due">
+                                    <span class="input-icon dollar-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper select-wrapper">
+                                <label for="select-current-tax">Has Current Tax bill been paid</label>
+                                <div class="field-wrapper">
+                                    <select name="select-current-tax" id="select-current-tax">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <span class="input-icon down-arrow-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper inactive">
+                                <label for="second-half-tax">Tax Proration Due at Closing for</label>
+                                <div class="field-wrapper">
+                                    <input name="second-half-tax" type="number" id="second-half-tax">
+                                    <span class="input-icon dollar-icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-section" id="section-2">
+                        <div class="section-header">
+                            <h3>Input and adjust</h3>
+                        </div>
+                        <div class="input-with-header">
+
+                            <h5>Sales Details</h5>
+                            <div class="amount-info-wrapper">
+
+                                <div class="input-wrapper wide-input">
+                                    <label for="calc-sales-price">Sales Price</label>
+                                    <div class="field-wrapper">
+                                        <input name="calc-sales-price" type="number" id="calc-sales-price">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="mortgage-balance-1">Less Present 1st Mortgage Balance</label>
+                                    <div class="field-wrapper">
+                                        <input name="mortgage-balance-1" type="number" id="mortgage-balance-1">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="mortgage-balance-2">Less Present 2nd Mortgage Balance</label>
+                                    <div class="field-wrapper">
+                                        <input name="mortgage-balance-2" type="number" id="mortgage-balance-2">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="input-with-header">
+
+                            <h5>Taxes</h5>
+                            <div class="amount-info-wrapper">
+                                <div class="input-wrapper wide-input">
+                                    <label for="transfer-fees">Transfer/Conveyance Fees</label>
+                                    <div class="field-wrapper">
+                                        <input name="transfer-fees" type="number" id="transfer-fees">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="tax-proration">Property Tax Proration</label>
+                                    <div class="field-wrapper">
+                                        <input name="tax-proration" type="number" id="tax-proration">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="calc-second-half-tax">Second Half Tax</label>
+                                    <div class="field-wrapper">
+                                        <input name="calc-second-half-tax" type="number" id="calc-second-half-tax">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-with-header">
+                            <h5>Title Insurance</h5>
+                            <div class="amount-info-wrapper">
+                                <div class="input-wrapper wide-input">
+                                    <label for="title-policy">Owners Title Policy</label>
+                                    <div class="field-wrapper">
+                                        <input name="title-policy" type="number" id="title-policy">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-with-header">
+                            <h5>Commissions</h5>
+                            <div class="amount-info-wrapper">
+                                <div class="input-wrapper">
+                                    <label for="real-estate-fee-s">Real Estate Fee (Selling Side)</label>
+                                    <div class="field-wrapper">
+                                        <input name="real-estate-fee-s" type="number" id="real-estate-fee-s">
+                                        <span class="input-icon percent-icon"></span>
+
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="real-estate-fee-l">Real Estate Fee (Listing Side)</label>
+                                    <div class="field-wrapper">
+                                        <input name="real-estate-fee-l" type="number" id="real-estate-fee-l">
+                                        <span class="input-icon percent-icon"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="calc-section" id="section-3">
+                        <div class="section-header">
+                            <h3>Input and adjust</h3>
+                        </div>
+                        <div class="input-with-header">
+                            <h5>Transaction Fees</h5>
+                            <div class="amount-info-wrapper">
+                                <div class="input-wrapper">
+                                    <label for="seller-closing-fee">Seller Closing Fee</label>
+                                    <div class="field-wrapper">
+                                        <input name="seller-closing-fee" type="number" id="seller-closing-fee">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="title-commitment-binder">Title Commitment Binder</label>
+                                    <div class="field-wrapper">
+                                        <input name="title-commitment-binder" type="number"
+                                            id="title-commitment-binder">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="title-search-fee">Title Search Fee</label>
+                                    <div class="field-wrapper">
+                                        <input name="title-search-fee" type="number" id="title-search-fee">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="document-prep">Document Prep (Deed)</label>
+                                    <div class="field-wrapper">
+                                        <input name="document-prep" type="number" id="document-prep">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="courier-others">Courier, Express Mail & Handling</label>
+                                    <div class="field-wrapper">
+                                        <input name="courier-others" type="number" id="courier-others">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="record-service">Recording Service Fee:</label>
+                                    <div class="field-wrapper">
+                                        <input name="record-service" type="number" id="record-service">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-with-header">
+                            <h5>Other Possible Fees</h5>
+                            <div class="amount-info-wrapper">
+                                <div class="input-wrapper">
+                                    <label for="home-warranty">Home Warranty</label>
+                                    <div class="field-wrapper">
+                                        <input name="home-warranty" type="number" id="home-warranty">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="gas-line">Gas Line Warranty</label>
+                                    <div class="field-wrapper">
+                                        <input name="gas-line" type="number" id="gas-line">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="title-search-fee">Title Search Fee</label>
+                                    <div class="field-wrapper">
+                                        <input name="title-search-fee" type="number" id="title-search-fee">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="overnight-shipping">Overnight Shipping Fee</label>
+                                    <div class="field-wrapper">
+                                        <input name="overnight-shipping" type="number" id="overnight-shipping">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="additional-cost">Additional Costs</label>
+                                    <div class="field-wrapper">
+                                        <input name="additional-cost" type="number" id="additional-cost">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" name="reusable-cost-name-1" class="reusable-cost-name"
+                                        placeholder="Click to add cost name">
+                                    <div class="field-wrapper">
+                                        <input name="reusable-cost-1" type="number" id="reusable-cost-1">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" name="reusable-cost-name-2" class="reusable-cost-name"
+                                        placeholder="Click to add cost name">
+                                    <div class="field-wrapper">
+                                        <input name="reusable-cost-2" type="number" id="reusable-cost-2">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" name="reusable-cost-name-3" class="reusable-cost-name"
+                                        placeholder="Click to add cost name">
+                                    <div class="field-wrapper">
+                                        <input name="reusable-cost-3" type="number" id="reusable-cost-3">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="calc-section" id="section-4">
+                        <div class="section-header">
+                            <h3>Final Result</h3>
+                        </div>
+                        <div class="input-with-header">
+                            <h5>Final Result</h5>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="form-button-group">
+                    <button class='btn btn-secondary tab-nav-btn' id="tab-back" data-target="back"><i
+                            class="fas fa-arrow-circle-left"></i> Back</button>
+                    <button class='btn tab-nav-btn' id="tab-next" data-target="next">Next <i
+                            class="fas fa-arrow-circle-right"></i></button>
+                </div>
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/popper/popper.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="main.js"></script>
+    <script src="netsheet.js"></script>
+</body>
+
+</html>

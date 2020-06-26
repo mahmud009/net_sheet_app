@@ -1,0 +1,322 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #eff0f7;
+}
+
+.main-form-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.indicator-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.indicator-btn {
+  border: 1px solid #c3c3c3;
+  border-radius: 50%;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #c3c3c3;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 14px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.indicator-btn:focus {
+  outline: none;
+}
+
+.indicator-btn:hover {
+  color: #aaaaaa;
+  border-color: #aaaaaa;
+}
+
+.indicator-active {
+  border-color: #00918e;
+  color: white;
+  background-color: #00918e;
+}
+
+.indicator-active:hover {
+  border-color: #00aba7;
+  color: white;
+  background-color: #00aba7;
+}
+
+form {
+  margin-top: 15px;
+  margin-bottom: 50px;
+  width: 550px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+          box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+  background-color: white;
+  padding-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: height 0.2s ease;
+  transition: height 0.2s ease;
+}
+
+.form-button-group {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  z-index: 99;
+}
+
+.form-button-group button {
+  margin-left: 18px;
+  width: 50%;
+}
+
+.form-button-group button:first-child {
+  margin-left: 0;
+}
+
+.form-button-group button[data-target="next"] {
+  background-color: #00918e;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.form-button-group button[data-target="next"]:hover {
+  background-color: #00aba7;
+}
+
+.section-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.section-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.section-header h3 {
+  margin-bottom: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.calc-section {
+  background-color: white;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#section-1 {
+  opacity: 1;
+  z-index: 999;
+}
+
+label {
+  margin: 0;
+  margin-right: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #808998;
+}
+
+label[for="prepared-by"],
+label[for="seller-name"],
+label[for="property-address"],
+label[for="select-county"] {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: #343a40;
+}
+
+input,
+select {
+  font-size: 14px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0;
+  border: 1px solid #ccc;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  width: 190px;
+}
+
+input[type="date"] {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+.amount-info-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.amount-info-wrapper .input-wrapper {
+  padding-top: 0;
+}
+
+.input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.select-wrapper select,
+.date-wrapper input {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+  padding-right: 0;
+  width: 215px;
+}
+
+.input-wrapper.wide-input {
+  display: block;
+  width: 100%;
+}
+
+.input-wrapper.wide-input input,
+.input-wrapper.wide-input select {
+  width: 100%;
+}
+
+.input-with-header h5 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+
+input.reusable-cost-name {
+  border: none;
+  padding-left: 0;
+  padding: 0;
+}
+
+.field-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.field-wrapper .input-icon {
+  background-color: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #ccc;
+  border-right: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.field-wrapper .input-icon svg {
+  color: #555;
+  height: 14px;
+}
+
+.select-wrapper .field-wrapper,
+.date-wrapper .field-wrapper {
+  position: relative;
+  display: block;
+}
+
+.select-wrapper .field-wrapper .input-icon,
+.date-wrapper .field-wrapper .input-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 25px;
+  border: none;
+  border: 1px solid #ccc;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.calendar-icon,
+.down-arrow-icon {
+  pointer-events: none;
+}
+/*# sourceMappingURL=style.css.map */
