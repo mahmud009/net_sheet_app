@@ -84,7 +84,7 @@ form {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 50px;
   padding-right: 50px;
   z-index: 99;
@@ -237,7 +237,8 @@ select:focus {
 }
 
 .select-wrapper select,
-.date-wrapper input {
+.date-wrapper input,
+.days-wrapper input {
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
   border-top-right-radius: 4px !important;
@@ -304,13 +305,15 @@ input.reusable-cost-name {
 }
 
 .select-wrapper .field-wrapper,
-.date-wrapper .field-wrapper {
+.date-wrapper .field-wrapper,
+.days-wrapper .field-wrapper {
   position: relative;
   display: block;
 }
 
 .select-wrapper .field-wrapper .input-icon,
-.date-wrapper .field-wrapper .input-icon {
+.date-wrapper .field-wrapper .input-icon,
+.days-wrapper .field-wrapper .input-icon {
   position: absolute;
   top: 0;
   right: 0;
@@ -327,5 +330,68 @@ input.reusable-cost-name {
 .calendar-icon,
 .down-arrow-icon {
   pointer-events: none;
+}
+
+.day-icon {
+  width: 60px !important;
+}
+
+.result-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.result-section {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 1px solid #dddddd;
+}
+
+.result-section:last-child {
+  border-right: none;
+}
+
+.result-title h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #6b7c93;
+}
+
+.result-number h1 {
+  margin: 0;
+  color: #525a6c;
+  font-size: 22px;
+  font-weight: 800;
+  padding-bottom: 8px;
+}
+
+.result-body {
+  width: 100%;
+}
+
+.result-content {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

@@ -75,7 +75,7 @@
                                 <label for="sale-price">Sale Price</label>
 
                                 <div class="field-wrapper">
-                                    <input name="sale-price" type="number" id="sale-pcire">
+                                    <input name="sale-price" type="number" id="sale-price">
                                     <span class="input-icon dollar-icon"></span>
                                 </div>
                             </div>
@@ -84,8 +84,9 @@
                                 <label for="closing-date">Closing Date</label>
 
                                 <div class="field-wrapper">
-                                    <input name="closing-date" type="date" id="closing-date" data-toggle="tooltip"
-                                        data-placement="top" title="Click the calendar icon to enable date-picker">
+                                    <input name="closing-date" type="date" min="2015-01-01" max="2030-12-31"
+                                        id="closing-date" data-toggle="tooltip" data-placement="top"
+                                        title="Click the calendar icon to enable date-picker">
                                     <span class="input-icon calendar-icon"></span>
                                 </div>
                             </div>
@@ -99,10 +100,18 @@
                             </div>
 
                             <div class="input-wrapper">
-                                <label for="pro-ration-due">Tax Proration Due at Closing for</label>
+                                <label for="monthly-tax">Monthly Property Tax</label>
+                                <div class="field-wrapper">
+                                    <input name="monthly-tax" type="number" id="monthly-tax">
+                                    <span class="input-icon dollar-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper days-wrapper">
+                                <label for="pro-ration-due">Proration Due at Closing for</label>
                                 <div class="field-wrapper">
                                     <input name="pro-ration-due" type="number" id="pro-ration-due">
-                                    <span class="input-icon dollar-icon"></span>
+                                    <span class="input-icon day-icon"></span>
                                 </div>
                             </div>
 
@@ -117,10 +126,10 @@
                                 </div>
                             </div>
 
-                            <div class="input-wrapper inactive">
-                                <label for="second-half-tax">Tax Proration Due at Closing for</label>
+                            <div class="input-wrapper wide-input">
+                                <label for="second-half-tax">Enter second half tax here</label>
                                 <div class="field-wrapper">
-                                    <input name="second-half-tax" type="number" id="second-half-tax">
+                                    <input readonly name="second-half-tax" type="number" id="second-half-tax">
                                     <span class="input-icon dollar-icon"></span>
                                 </div>
                             </div>
@@ -185,9 +194,10 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="calc-second-half-tax">Second Half Tax</label>
+                                    <label for="calc-second-half-tax">Second Half Tax Due</label>
                                     <div class="field-wrapper">
-                                        <input name="calc-second-half-tax" type="number" id="calc-second-half-tax">
+                                        <input readonly name="calc-second-half-tax" type="number"
+                                            id="calc-second-half-tax">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -211,19 +221,37 @@
                             <h5>Commissions</h5>
                             <div class="amount-info-wrapper">
                                 <div class="input-wrapper">
-                                    <label for="real-estate-fee-s">Real Estate Fee (Selling Side)</label>
+                                    <label for="s-estate-fee-percent">Real Estate Fee (Selling Side %)</label>
                                     <div class="field-wrapper">
-                                        <input name="real-estate-fee-s" type="number" id="real-estate-fee-s">
+                                        <input name="s-estate-fee-percent" type="number" id="s-estate-fee-percent">
                                         <span class="input-icon percent-icon"></span>
 
                                     </div>
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="real-estate-fee-l">Real Estate Fee (Listing Side)</label>
+                                    <label for="s-estate-fee-amount">Real Estate Fee (Selling Side $)</label>
                                     <div class="field-wrapper">
-                                        <input name="real-estate-fee-l" type="number" id="real-estate-fee-l">
+                                        <input name="s-estate-fee-amount" type="number" id="s-estate-fee-amount">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="input-wrapper">
+                                    <label for="l-estate-fee-percent">Real Estate Fee (Listing Side)</label>
+                                    <div class="field-wrapper">
+                                        <input name="l-estate-fee-percent" type="number" id="l-estate-fee-percent">
                                         <span class="input-icon percent-icon"></span>
+                                    </div>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <label for="l-estate-fee-amount">Real Estate Fee (Listing Side)</label>
+                                    <div class="field-wrapper">
+                                        <input name="l-estate-fee-amount" type="number" id="l-estate-fee-amount">
+                                        <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
 
@@ -367,9 +395,72 @@
                         <div class="section-header">
                             <h3>Final Result</h3>
                         </div>
-                        <div class="input-with-header">
-                            <h5>Final Result</h5>
+
+                        <div class="result-body">
+                            <div class="result-content">
+                                <div class="info-section">
+                                    <div class="cnt-row">
+                                        <div class="cnt-title">PREPARED FOR : </div>
+                                        <div class="cnt-value" id="cnt-prepared-for">Md. Mahmudur Rahman</div>
+                                    </div>
+                                    <div class="cnt-row">
+                                        <div class="cnt-title">PREPARED BY : </div>
+                                        <div class="cnt-value" id="cnt-prepared-by">Md. Mahmudur Rahman</div>
+                                    </div>
+                                    <div class="cnt-row">
+                                        <div class="cnt-title">PREPARED FOR : </div>
+                                        <div class="cnt-value" id="cnt-street-address">House : 1, Road : 2, Block : J,
+                                            Baridhara, Dhaka</div>
+                                    </div>
+                                </div>
+
+                                <div class="cnt-section">
+                                    <div class="cnt-sec-title">SALES/FINANCING DETAILS</div>
+                                    <div class="cnt-sec-body">
+                                        <div class="cnt-row">
+                                            <div class="cnt-sub-title">Sales Price:</div>
+                                            <div class="cnt-value"><span>$ </span><span
+                                                    id="cnt-sale-price">510000</span></div>
+                                        </div>
+                                        <div class="cnt-row">
+                                            <div class="cnt-sub-title">Less Present 1st Mortgage Balance:</div>
+                                            <div class="cnt-value"><span>$ </span><span
+                                                    id="cnt-mortgage-balance-1">15000</span></div>
+                                        </div>
+                                        <div class="cnt-row">
+                                            <div class="cnt-sub-title">Less Present 2nd Mortgage Balance</div>
+                                            <div class="cnt-value"><span>$ </span><span
+                                                    id="cnt-mortgage-balance-2">6000</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
+
+                        <div class="result-wrapper">
+
+                            <div class="result-section">
+                                <div class="result-number">
+                                    <h1><span>$ </span><span id="selling-expenses"></span></h1>
+                                </div>
+                                <div class="result-title">
+                                    <h4>Total Selling Expenses</h4>
+                                </div>
+                            </div>
+                            <div class="result-section">
+                                <div class="result-number">
+                                    <h1><span>$ </span><span id="selling-equity"></span></h1>
+                                </div>
+                                <div class="result-title">
+                                    <h4>Estimated Equity to Seller</h4>
+                                </div>
+                            </div>
+
+                        </div>
+
+
                     </div>
 
 
@@ -392,6 +483,11 @@
     <script src="plugins/jquery/jquery.min.js"></script>
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+
+
 
     <script src="counties.js"></script>
     <script src="main.js"></script>

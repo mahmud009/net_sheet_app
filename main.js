@@ -22,6 +22,7 @@ function initForms() {
   var percentSign = `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-percent"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
     `;
+  var dayIcon = `days`;
 
   // Adding icons to the input element
   $(".text-icon").html(textSign);
@@ -29,9 +30,18 @@ function initForms() {
   $(".calendar-icon").html(calendarSign);
   $(".down-arrow-icon").html(downArrow);
   $(".percent-icon").html(percentSign);
+  $(".day-icon").html(dayIcon);
 
   // Setting default number input value
   $("input[type=number]").attr("value", "0.00");
+  $(".days-wrapper input").attr("value", "0");
+  $("#overnight-shipping").attr("value", "10.77");
+  $("#seller-closing-fee").attr("value", "175.00");
+  $("#title-commitment-binder").attr("value", "50.00");
+  $("#title-search-fee").attr("value", "250.00");
+  $("#document-prep").attr("value", "75.00");
+  $("#courier-others").attr("value", "35.00");
+  $("#record-service").attr("value", "30.00");
 
   // If user accidentaly leave an input box empty
   // Then zero will be added automatically
@@ -39,6 +49,18 @@ function initForms() {
   $("input[type=number]").on("change", function () {
     if (this.value == "" || this.value == 0) {
       this.value = "0.00";
+    }
+  });
+
+  // Enable second half tax input based on
+  // Current tax paid field value
+  $("#select-current-tax").on("change", function () {
+    if ($(this).val() == "No") {
+      $("#second-half-tax").removeAttr("readonly");
+    } else {
+      $("#second-half-tax").val("0.00");
+      $("#second-half-tax").attr("readonly", "");
+      $("#calc-second-half-tax").val("0.00");
     }
   });
 
@@ -85,6 +107,7 @@ function tabbedView() {
     // Checking an validating the button actions
     // and updating the active section variable
     // to update the view
+
     switch (true) {
       case $(this).data("target") == "next":
         if (activeTab < tabCount) activeTab += 1;
@@ -92,6 +115,18 @@ function tabbedView() {
       case $(this).data("target") == "back":
         if (activeTab > 1) activeTab -= 1;
         break;
+    }
+
+    // Convert next button to submit button based on third section
+    if (activeTab > 2) {
+      $("#tab-next").attr("type", "submit");
+      $("#tab-next").attr("onclick", "calculateAll()");
+      $("#tab-next").html(`Calculate <i class="fas fa-check-circle"></i>`);
+    } else {
+      $("#tab-next").removeAttr("type");
+      $("#tab-next").removeAttr("onclick");
+      $("#tab-next").html(`Next <i
+      class="fas fa-arrow-circle-right"></i>`);
     }
 
     // After updating the active section variable
@@ -116,4 +151,6 @@ function tabbedView() {
 $(function () {
   initForms();
   tabbedView();
+
+  let doc = new jsPDF();
 });
