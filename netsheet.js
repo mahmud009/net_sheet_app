@@ -31,4 +31,43 @@ function titlePolicyCalc(price) {
   return result;
 }
 
-$(function () {});
+//Helper function used in dynamic value function
+//==============================================
+function calcDueDays(input) {
+  let date = new Date(input);
+  let month = date.getMonth();
+  if (month > 5) {
+    let newDate = new Date(date.getFullYear(), 6, 1); // year, month, day
+    console.log(newDate);
+    let timeDiff = Math.abs(newDate.getTime() - date.getTime());
+    let dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    console.log(dayDiff + 181);
+
+    
+  }
+}
+
+//===================================================
+// Setting dynamic values based on initial input
+//===================================================
+function settingDynamicValues() {
+  // Dynamic sale value passed
+  // from section-1 to section-2
+  $("#sale-pcire").on("change", function (e) {
+    let saleValue = $(this).val();
+    let nextSaleValue = $("#calc-sales-price");
+    nextSaleValue.val(saleValue);
+  });
+
+  $("#closing-date").on("change", function () {
+    let dateValue = $(this).val();
+
+    calcDueDays(dateValue);
+  });
+}
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+$(function () {
+  settingDynamicValues();
+});

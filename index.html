@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller's Net Sheet Calculator</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet"> -->
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -62,7 +62,9 @@
                             <div class="input-wrapper select-wrapper wide-input">
                                 <label for="select-county">Select County</label>
                                 <div class="field-wrapper">
-                                    <select name="select-county" id="select-county"></select>
+                                    <select name="select-county" id="select-county">
+                                        <option value="none">Select county</option>
+                                    </select>
                                     <span class="input-icon down-arrow-icon"></span>
                                 </div>
                             </div>
@@ -137,7 +139,7 @@
                                 <div class="input-wrapper wide-input">
                                     <label for="calc-sales-price">Sales Price</label>
                                     <div class="field-wrapper">
-                                        <input name="calc-sales-price" type="number" id="calc-sales-price">
+                                        <input readonly name="calc-sales-price" type="number" id="calc-sales-price">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -359,8 +361,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
                     <div class="calc-section" id="section-4">
@@ -393,6 +393,7 @@
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 
+    <script src="counties.js"></script>
     <script src="main.js"></script>
     <script src="netsheet.js"></script>
 </body>

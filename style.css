@@ -183,6 +183,12 @@ select {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   width: 190px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+input[readonly] {
+  background-color: #eeeeee;
 }
 
 input[type="date"] {
@@ -193,6 +199,9 @@ input[type="date"] {
 input:focus,
 select:focus {
   outline: none;
+  border-color: #00918e;
+  -webkit-box-shadow: 0 0 0 1px #00918e inset;
+          box-shadow: 0 0 0 1px #00918e inset;
 }
 
 .amount-info-wrapper {
