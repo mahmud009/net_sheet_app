@@ -9,6 +9,12 @@ body {
   width: fit-content;
 }
 
+@media (max-width: 600px) {
+  .main-form-wrapper {
+    width: 100%;
+  }
+}
+
 .indicator-wrapper {
   width: 100%;
   display: -webkit-box;
@@ -73,6 +79,12 @@ form {
   overflow: hidden;
   -webkit-transition: height 0.2s ease;
   transition: height 0.2s ease;
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 100%;
+  }
 }
 
 .form-button-group {
@@ -146,6 +158,13 @@ form {
   transition: all 0.5s ease;
 }
 
+@media (max-width: 600px) {
+  .calc-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 #section-1 {
   opacity: 1;
   z-index: 999;
@@ -185,6 +204,13 @@ select {
   width: 190px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  input,
+  select {
+    width: 100% !important;
+  }
 }
 
 input[readonly] {
@@ -234,6 +260,13 @@ select:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .input-wrapper {
+    display: block;
+    width: 100%;
+  }
 }
 
 .select-wrapper select,
