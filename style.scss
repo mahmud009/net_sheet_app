@@ -100,11 +100,21 @@ form {
   padding-right: 50px;
   z-index: 99;
 
+  @include mobile {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   button {
     margin-left: 18px;
     width: 50%;
+    font-size: 14px;
+
     &:first-child {
       margin-left: 0;
+    }
+    @include mobile {
+      font-size: 12px;
     }
   }
 }

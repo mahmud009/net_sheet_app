@@ -102,13 +102,27 @@ form {
   z-index: 99;
 }
 
+@media (max-width: 600px) {
+  .form-button-group {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 .form-button-group button {
   margin-left: 18px;
   width: 50%;
+  font-size: 14px;
 }
 
 .form-button-group button:first-child {
   margin-left: 0;
+}
+
+@media (max-width: 600px) {
+  .form-button-group button {
+    font-size: 12px;
+  }
 }
 
 .form-button-group button[data-target="next"] {
