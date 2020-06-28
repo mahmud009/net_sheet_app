@@ -93,6 +93,8 @@ function tabbedView() {
   $(".tab-nav-btn").on("click", function (e) {
     e.preventDefault();
 
+    // Scroll automatically to top after clicking
+    // Nav buttons
     $(window).scrollTop(0);
 
     // After clicking nav button it will go the next section
@@ -120,6 +122,7 @@ function tabbedView() {
     }
 
     // Convert next button to submit button based on third section
+
     if (activeTab > 2) {
       $("#tab-next").attr("type", "submit");
       $("#tab-next").attr("onclick", "calculateAll()");
@@ -129,6 +132,12 @@ function tabbedView() {
       $("#tab-next").removeAttr("onclick");
       $("#tab-next").html(`Next <i
       class="fas fa-arrow-circle-right"></i>`);
+    }
+
+    if (activeTab > 3) {
+      $("#tab-next").addClass("next-inactive");
+    } else {
+      $("#tab-next").removeClass("next-inactive");
     }
 
     // After updating the active section variable
@@ -144,6 +153,7 @@ function tabbedView() {
     $(`#indicator-btn-${activeTab}`).addClass("indicator-active");
   });
 
+  // Fixing form height on window resize
   $(window).on("resize", function (e) {
     let activeHeight = $(`#section-${activeTab}`).height();
     $("#net_sheet_form").height(formHeight + activeHeight);

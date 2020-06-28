@@ -19,7 +19,7 @@
 
         <div class="main-form-wrapper d-flex justify-content-center flex-column">
 
-            <div class="indicator-wrapper">
+            <div class="indicator-wrapper" id="form-indicator-wrapper">
                 <button class="indicator-btn indicator-active" id="indicator-btn-1" data-tabindex="1">1</button>
                 <button class="indicator-btn" id="indicator-btn-2" data-tabindex="2">2</button>
                 <button class="indicator-btn" id="indicator-btn-3" data-tabindex="3">3</button>
@@ -573,20 +573,22 @@
                             <div class="result-wrapper">
 
                                 <div class="result-section">
-                                    <div class="result-number">
-                                        <h1><span>$ </span><span id="selling-expenses"></span></h1>
-                                    </div>
                                     <div class="result-title">
                                         <h4>Total Selling Expenses</h4>
                                     </div>
+                                    <div class="result-number">
+                                        <h1><span>$ </span><span id="selling-expenses"></span></h1>
+                                    </div>
+
                                 </div>
                                 <div class="result-section">
-                                    <div class="result-number">
-                                        <h1><span>$ </span><span id="selling-equity"></span></h1>
-                                    </div>
                                     <div class="result-title">
                                         <h4>Estimated Equity to Seller</h4>
                                     </div>
+                                    <div class="result-number">
+                                        <h1><span>$ </span><span id="selling-equity"></span></h1>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -594,7 +596,9 @@
                         </div>
 
                         <div class="result-action-buttons">
-                            <button type="download">Download pdf</button>
+                            <button name="pdf">PDF</button>
+                            <button name="print">PRINT</button>
+                            <button name="email">EMAIL</button>
                         </div>
                     </div>
                 </div>
