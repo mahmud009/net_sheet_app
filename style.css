@@ -394,4 +394,71 @@ input.reusable-cost-name {
 .result-content {
   width: 100%;
 }
+
+.info-section,
+.cnt-section {
+  width: 100%;
+}
+
+.cnt-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cnt-value {
+  width: 80px;
+  text-align: left;
+}
+
+.info-section .cnt-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info-section .cnt-row {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.info-section .cnt-value {
+  font-size: 14px;
+  color: #808998;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 15px;
+}
+
+.cnt-section {
+  padding-top: 5px;
+}
+
+.cnt-sec-title {
+  color: #00918e;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.cnt-section .cnt-sub-title {
+  font-size: 12px;
+  color: #808998;
+}
+
+.cnt-section .cnt-value {
+  color: #5a6268;
+  font-size: 12px;
+}
 /*# sourceMappingURL=style.css.map */

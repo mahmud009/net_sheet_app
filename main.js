@@ -152,5 +152,17 @@ $(function () {
   initForms();
   tabbedView();
 
-  let doc = new jsPDF();
+  $("button[type=download]").on("click", function (e) {
+    // doc.save(`Seller_net_sheet.pdf`);
+    e.preventDefault();
+    // generate();
+
+    var pdf = new jsPDF("p", "pt", "letter");
+    html2canvas(document.querySelector("#main-result-body")).then((canvas) => {
+      document.body.appendChild(canvas);
+    });
+    pdf.addHTML(document.querySelector("#canvas"), function () {
+      pdf.save("Test.pdf");
+    });
+  });
 });
