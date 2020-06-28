@@ -93,6 +93,8 @@ function tabbedView() {
   $(".tab-nav-btn").on("click", function (e) {
     e.preventDefault();
 
+    $(window).scrollTop(0);
+
     // After clicking nav button it will go the next section
     // or previous section, so before going anywhere
     // last section's height should be removed from the form height
@@ -140,6 +142,11 @@ function tabbedView() {
       lastSectionHeight;
     $("#net_sheet_form").height(newFormHeight);
     $(`#indicator-btn-${activeTab}`).addClass("indicator-active");
+  });
+
+  $(window).on("resize", function (e) {
+    let activeHeight = $(`#section-${activeTab}`).height();
+    $("#net_sheet_form").height(formHeight + activeHeight);
   });
 }
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

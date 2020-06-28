@@ -148,7 +148,8 @@ form {
   h3 {
     margin-bottom: 0;
     font-size: 18px;
-    text-transform: uppercase;
+
+    font-weight: bold;
   }
 }
 
@@ -191,6 +192,9 @@ label[for="select-county"] {
   font-weight: bold;
   margin-bottom: 0;
   color: #343a40;
+  @include mobile {
+    font-size: 12px;
+  }
 }
 input,
 select {
@@ -209,6 +213,9 @@ select {
 
   @include mobile {
     width: 100% !important;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
@@ -245,6 +252,7 @@ select:focus {
   @include mobile {
     display: block;
     width: 100%;
+    padding-bottom: 10px;
   }
 }
 
@@ -269,11 +277,17 @@ select:focus {
 }
 
 .input-with-header {
+  @include mobile {
+    padding-bottom: 5px;
+  }
   h5 {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 0;
     padding-bottom: 10px;
+    @include mobile {
+      padding-bottom: 0;
+    }
   }
 }
 
