@@ -480,3 +480,31 @@ input.reusable-cost-name {
     width: fit-content;
   }
 }
+
+// Email modal css
+
+#send-email-modal .modal-content {
+  background-color: white !important;
+  button[type="submit"] {
+    background-color: #00918e;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    &:hover {
+      background-color: lighten(#00918e, 5%);
+    }
+  }
+
+  #send-email-form {
+    width: 100%;
+    background-color: #fbfcfc;
+    margin: 0;
+    padding: 0;
+    input {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+}

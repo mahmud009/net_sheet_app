@@ -226,25 +226,58 @@ function enablePdfPrint() {
       render: "download",
       filename: `seller_net_sheet`,
     });
+
+    // xepOnline.Formatter.Format("result-contents", {
+    //   render: "base64",
+    // });
+
+    // $(document).on("xepOnlineStatus", function () {
+    //   console.log("finished");
+    // });
+  });
+
+  $("#btn-email").on("click", function (e) {
+    e.preventDefault();
   });
 }
 
-function sendEmail() {
-  $("#btn-email").on("click", function (e) {
+async function sendEmail() {
+  $("#send-email-form").on("submit", function (e) {
     e.preventDefault();
-
+    $("#send-email-modal").modal("hide");
     // Email API Key
-    //193F79D80970CA34A7642B44C3E744CA1CFE1EDBAB47F21569137F6A3C5DA52AE5A87AD9B6FA5B5410E9F3D9F0574283
+    // 193F79D80970CA34A7642B44C3E744CA1CFE1EDBAB47F21569137F6A3C5DA52AE5A87AD9B6FA5B5410E9F3D9F0574283
+    // Security Token "a2cd447b-0977-4d4d-a376-c709f8682914"
 
-    // Security Token
+    xepOnline.Formatter.Format("result-contents", {
+      render: "none",
+      filename: `seller_net_sheet`,
+    });
 
     Email.send({
-      SecureToken: "a2cd447b-0977-4d4d-a376-c709f8682914",
-      To: "mahmud.est@gmail.com",
+      // SecureToken: "a2cd447b-0977-4d4d-a376-c709f8682914",
+      // Port: "25",
+      // TLS: "STARTTLS",
+
+      Host: "smtp.mailtrap.io",
+      Port: "25",
+      Username: "4c680881b5ddb3",
+      Password: "13354c0bca23b5",
+      To: $("#email-address").val(),
       From: "mahmud.est@gmail.com",
       Subject: "This is the subject",
       Body: "And this is the body",
-    }).then((message) => alert(message));
+    }).then((message) => {
+      console.log(message);
+      if (message == "OK") {
+        let msg = "Mail send succesfull, please check your inbox";
+        $("#mail-status .modal-body p").text(msg);
+      } else {
+        $("#mail-status .modal-body p").text(message);
+      }
+
+      $("#mail-status").modal();
+    });
   });
 }
 //=========================

@@ -16,6 +16,53 @@
 
 <body>
 
+
+    <div class="modal fade" id="send-email-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Send Email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="send-email-form">
+                        <label for="email">Enter your email address</label>
+                        <input type="email" id="email-address" placeholder="Enter your email address" name="email">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mail-status" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mail Sending Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container  d-flex justify-content-center">
 
         <div class="main-form-wrapper d-flex justify-content-center flex-column" id="main-form-wrapper">
@@ -587,7 +634,8 @@
                         <div class="result-action-buttons">
                             <button name="pdf" id="btn-pdf">PDF</button>
                             <button name="print" id="btn-print">PRINT</button>
-                            <button name="email" id="btn-email">EMAIL</button>
+                            <button name="email" id="btn-email" data-toggle="modal"
+                                data-target="#send-email-modal">EMAIL</button>
                         </div>
                     </div>
                 </div>
