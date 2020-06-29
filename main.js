@@ -232,11 +232,14 @@ function sendEmail() {
   $("#btn-email").on("click", function (e) {
     e.preventDefault();
 
+    // Email API Key
+    //193F79D80970CA34A7642B44C3E744CA1CFE1EDBAB47F21569137F6A3C5DA52AE5A87AD9B6FA5B5410E9F3D9F0574283
+
+    // Security Token
+
     Email.send({
-      Host: "smtp.gmail.com",
-      Username: "mahmud.est@gmail.com",
-      Password: "mahmudsagor",
-      To: "urmi.unique15@gmail.com",
+      SecureToken: "a2cd447b-0977-4d4d-a376-c709f8682914",
+      To: "mahmud.est@gmail.com",
       From: "mahmud.est@gmail.com",
       Subject: "This is the subject",
       Body: "And this is the body",
