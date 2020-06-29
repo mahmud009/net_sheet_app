@@ -361,106 +361,49 @@ input.reusable-cost-name {
 }
 
 // Result section css
-.result-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
-.result-section {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  &:last-child {
-    border-right: none;
+#section-4 {
+  .section-header {
+    padding-bottom: 10px;
   }
 }
 
-.result-title {
-  h4 {
-    margin: 0;
-    font-size: 16px;
-    color: #6b7c93;
-  }
-}
-
-.result-number {
-  h1 {
-    margin: 0;
-    color: lighten(#3c424f, 10%);
-    font-size: 16px;
-    font-weight: 800;
-    padding-bottom: 8px;
-  }
-}
-
-.result-body {
-  width: 100%;
-}
-
-.result-content {
-  width: 100%;
-}
-
-.info-section,
-.cnt-section {
-  width: 100%;
-}
-.cnt-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.cnt-section .cnt-sub-title {
-  font-size: 12px;
-  color: $label-color;
-}
-
-.cnt-value {
-  width: 80px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-}
-
-.info-section .cnt-title {
-  font-size: 14px;
+.result-total {
+  font-size: 16px;
+  color: #6b7c93;
   font-weight: bold;
-}
-.info-section .cnt-row {
-  justify-content: left;
-}
-.info-section .cnt-value {
-  font-size: 14px;
-  color: $label-color;
-  width: fit-content;
-  padding-left: 15px;
+  vertical-align: middle !important;
+  &:first-child {
+    padding-top: 15px;
+
+    @include mobile {
+      padding-top: 10px;
+    }
+  }
+
+  @include mobile {
+    font-size: 12px !important;
+  }
 }
 
-.cnt-section {
-  padding-top: 5px;
-}
-.cnt-sec-title {
-  color: #00918e;
-  font-size: 12px;
-  font-weight: bold;
-  text-decoration: underline;
-}
+.result-total-amount {
+  margin: 0;
+  color: lighten(#3c424f, 10%);
+  font-size: 20px;
+  line-height: 20px !important;
+  font-weight: 800;
+  padding-top: 15px;
 
-.cnt-section .cnt-value {
-  color: rgb(90, 98, 104);
-  font-size: 12px;
+  vertical-align: middle !important;
+
+  @include mobile {
+    font-size: 14px;
+    padding-top: 10px !important;
+  }
 }
 
 .result-action-buttons {
+  padding-top: 15px;
   width: 100%;
   text-align: center;
   button {
@@ -482,22 +425,59 @@ input.reusable-cost-name {
   }
 }
 
-// Test css
-
-.result-table-container {
-  width: 550px;
+// Result table css
+#result-tables {
+  width: 100%;
+  padding-bottom: 30px;
 }
 
-// #main-result-table,
-// #result-basic-info {
-//   td,
-//   th {
-//     width: 200px;
-//     border: 1px solid #00918e;
-//     text-align: center;
-//   }
+#result-contents {
+  width: 100%;
+  table-layout: fixed;
+  td,
+  th {
+    line-height: 14px;
 
-//   th {
-//     background-color: $border-color;
-//   }
-// }
+    vertical-align: top;
+  }
+
+  th {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    color: #525a6c;
+  }
+
+  .cell-heading {
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 10px;
+    color: #525a6c;
+  }
+
+  .cell-data {
+    color: #818998;
+    font-size: 14px;
+  }
+  .particulars-title {
+    color: #00918e;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 12px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  .particular-amount {
+    font-size: 14px;
+  }
+
+  .particular-name,
+  .additional-info {
+    color: #818998;
+    font-size: 12px;
+    width: fit-content;
+  }
+}

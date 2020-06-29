@@ -277,6 +277,7 @@ function resultSheetGenerate() {
       resultElement.text(accounting.formatMoney(value));
     } else {
       resultElement.text(value);
+      console.log(value);
     }
   }
 }
@@ -326,8 +327,8 @@ function calculateAll() {
   let mortgage_sum = mortgages.reduce((a, b) => a + b);
   let equity = saleValue - expenses - mortgage_sum;
 
-  $("#selling-expenses").text(expenses.toFixed(2));
-  $("#selling-equity").text(equity.toFixed(2));
+  $("#selling-expenses").text(accounting.formatMoney(expenses.toFixed(2)));
+  $("#selling-equity").text(accounting.formatMoney(equity.toFixed(2)));
 }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

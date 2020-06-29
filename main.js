@@ -6,8 +6,8 @@ function initForms() {
   // Accounting Number formating settings
   accounting.settings = {
     currency: {
-      symbol: "", // default currency symbol is '$'
-      format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+      symbol: " $", // default currency symbol is '$'
+      format: "%v%s", // controls output: %s = symbol, %v = value/number (can be object: see below)
       decimal: ".", // decimal point separator
       thousand: ",", // thousands separator
       precision: 2, // decimal places
@@ -193,22 +193,36 @@ function tabbedView() {
   });
 
   // Fixing form height on window resize
+  // Fixing result table address column padding on
+  // Mobile device
   $(window).on("resize", function (e) {
     let activeHeight = $(`#section-${activeTab}`).height();
     $("#net_sheet_form").height(formHeight + activeHeight);
-  });
 
-  // Enabling print button
-  $("#btn-print").on("click", function (e) {
-    e.preventDefault();
-    $("#main-result-body").printThis({
-      loadCSS: "print.css",
-      pageTitle: "-",
-    });
+    if ($(window).width() < 440) {
+      $(".res-address").css("padding-left", "50px");
+    } else {
+      $(".res-address").css("padding-left", "100px");
+    }
   });
 }
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+function enablePdfPrint() {
+  // Enabling print button
+  $("#btn-print").on("click", function (e) {
+    e.preventDefault();
+    xepOnline.Formatter.Format("result-contents", {});
+  });
+
+  $("#btn-pdf").on("click", function (e) {
+    e.preventDefault();
+    xepOnline.Formatter.Format("result-contents", {
+      render: "download",
+    });
+  });
+}
 
 //=========================
 // Document ready function
@@ -216,4 +230,5 @@ function tabbedView() {
 $(function () {
   initForms();
   tabbedView();
+  enablePdfPrint();
 });

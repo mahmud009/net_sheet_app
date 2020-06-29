@@ -387,186 +387,197 @@
 
                     <div class="calc-section" id="section-4">
                         <div class="section-header">
-                            <h3>Final Result</h3>
+                            <h3>Seller's Net Sheet</h3>
                         </div>
 
                         <div class="result-body" id="main-result-body">
-                            <div class="result-content" id="result-content">
-                                <div class="info-section">
-                                    <div class="cnt-row">
-                                        <div class="cnt-title">PREPARED FOR : </div>
-                                        <div class="cnt-value" id="cnt-seller-name"></div>
-                                    </div>
-                                    <div class="cnt-row">
-                                        <div class="cnt-title">PREPARED BY : </div>
-                                        <div class="cnt-value" id="cnt-prepared-by"></div>
-                                    </div>
-                                    <div class="cnt-row">
-                                        <div class="cnt-title">ADDRESS : </div>
-                                        <div class="cnt-value" id="cnt-property-address"></div>
-                                    </div>
-                                </div>
 
-                                <div class="cnt-section">
-                                    <div class="cnt-sec-title">SALES / FINANCING DETAILS</div>
-                                    <div class="cnt-sec-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Sales Price:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-calc-sales-price"></span>
-                                            </div>
-                                        </div>
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Less Present 1st Mortgage Balance:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-mortgage-balance-1"></span></div>
-                                        </div>
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Less Present 2nd Mortgage Balance:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-mortgage-balance-2"></span></div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <table id="result-contents" style="padding-left:60px">
+                                <tr>
+                                    <td class="cell-heading" colspan="2">Seller Name :</td>
+                                    <td class="cell-heading res-address" colspan="2" style="padding-left: 100px;">
+                                        Address :</td>
+                                </tr>
 
-                                <div class="cnt-section">
-                                    <div class="cnt-sec-title">TAXES</div>
-                                    <div class="cnt-sec-body cnt-tax-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Transfer/Conveyance Fees:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-transfer-fees"></span>
-                                            </div>
-                                        </div>
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Property Tax Proration:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-tax-proration"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <tr>
+                                    <td class="cell-data" colspan="2" id="cnt-seller-name">Md. Mahmudur Rahman</td>
+                                    <td class="cell-data res-address" colspan="2" rowspan="3"
+                                        style="padding-left: 100px; text-align: justify;">House -
+                                        1, Road-
+                                        2,Block-J,
+                                        Baridhara, Dhaka</td>
+                                </tr>
 
-                                <div class="cnt-section">
-                                    <div class="cnt-sec-title">TITLE INSURANCE</div>
-                                    <div class="cnt-sec-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Owners Title Policy:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-title-policy"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <tr>
+                                    <td class="cell-heading" colspan="2">Prepared By :</td>
 
-                                <div class="cnt-section">
-                                    <div class="cnt-sec-title">REAL ESTATE COMMISSIONS</div>
-                                    <div class="cnt-sec-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Real Estate Fee (Selling Side):</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-s-estate-fee-amount"></span></div>
-                                        </div>
+                                </tr>
+                                <tr>
+                                    <td class="cell-data" colspan="2" id="cnt-prepared-by">Alamin Hossain</td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Real Estate Fee (Listing Side):</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-l-estate-fee-amount"></span></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <tr>
+                                    <th colspan="2">Particulars-</th>
+                                    <th></th>
+                                    <th style="text-align: right;">Amount-</th>
+                                </tr>
 
-                                <div class="cnt-section">
-                                    <div class="cnt-sec-title">TRANSACTION FEES</div>
-                                    <div class="cnt-sec-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Seller Closing Fee : </div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-seller-closing-fee"></span></div>
-                                        </div>
+                                <tr>
+                                    <td colspan="4" class="particulars-title">SALES / FINANCING DETAILS</td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Sales Price:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-calc-sales-price" style="text-align: right;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Less Present 1st Mortgage Balance:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-mortgage-balance-1"
+                                        style="text-align: right;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Less Present 2nd Mortgage Balance:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-mortgage-balance-2"
+                                        style="text-align: right;"></td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Title Commitment Binder:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-title-commitment-binder"></span></div>
-                                        </div>
+                                <tr>
+                                    <td colspan="4" class="particulars-title">TAXES</td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Transfer/Conveyance Fees:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-transfer-fees" style="text-align: right;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Property Tax Proration:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-tax-proration" style="text-align: right;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">cnt-calc-second-half-tax:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-calc-second-half-tax"
+                                        style="text-align: right;"></td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Title Search Fee:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-title-search-fee"></span></div>
-                                        </div>
+                                <tr>
+                                    <td colspan="4" class="particulars-title">TITLE INSURANCE</td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Owners Title Policy:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-title-policy" style="text-align: right;"></td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Document Prep (Deed):</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-document-prep"></span>
-                                            </div>
-                                        </div>
+                                <tr>
+                                    <td colspan="4" class="particulars-title">REAL ESTATE COMMISSIONS</td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Real Estate Fee (Selling Side):</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-s-estate-fee-amount"
+                                        style="text-align: right;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Real Estate Fee (Listing Side):</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-l-estate-fee-amount"
+                                        style="text-align: right;"></td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Courier, Express Mail & Handling:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-courier-others"></span>
-                                            </div>
-                                        </div>
+                                <tr>
+                                    <td colspan="4" class="particulars-title">TRANSACTION FEES</td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Seller Closing Fee:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-seller-closing-fee"
+                                        style="text-align: right;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Title Commitment Binder:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-title-commitment-binder"
+                                        style="text-align: right;"></td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Recording Service Fee:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-record-service"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Title Search Fee:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-title-search-fee" style="text-align: right;">
+                                    </td>
+                                </tr>
 
-                                <div class="cnt-section">
-                                    <div class="cnt-sec-title">OTHER POSSIBLE FEES</div>
-                                    <div class="cnt-sec-body cnt-reusable-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Home Warranty: </div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-home-warranty"></span>
-                                            </div>
-                                        </div>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Document Prep (Deed):</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-document-prep" style="text-align: right;">
+                                    </td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Gas Line Warranty:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-gas-line">2243</span>
-                                            </div>
-                                        </div>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Courier, Express Mail & Handling:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-courier-others" style="text-align: right;">
+                                    </td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Overnight Shipping Fee:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-overnight-shipping"></span></div>
-                                        </div>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Recording Service Fee:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-record-service" style="text-align: right;">
+                                    </td>
+                                </tr>
 
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Additional Costs:</div>
-                                            <div class="cnt-value"><span>$ </span><span id="cnt-additional-cost"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <tr>
+                                    <td colspan="4" class="particulars-title">OTHER POSSIBLE FEES</td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Home Warranty:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-home-warranty" style="text-align: right;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Gas Line Warranty:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-gas-line" style="text-align: right;"></td>
+                                </tr>
 
-                            </div>
+                                <tr>
+                                    <td class="particular-name" colspan="2">Overnight Shipping Fee:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-overnight-shipping"
+                                        style="text-align: right;"></td>
+                                </tr>
 
-                            <div class="result-wrapper">
+                                <tr>
+                                    <td class="particular-name" colspan="2">Additional Costs:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-additional-cost" style="text-align: right;">
+                                    </td>
+                                </tr>
 
-                                <div class="result-section">
-                                    <div class="result-title">
-                                        <h4>Total Selling Expenses</h4>
-                                    </div>
-                                    <div class="result-number">
-                                        <h1><span>$ </span><span id="selling-expenses"></span></h1>
-                                    </div>
+                                <tr>
+                                    <td class="result-total" colspan="3">Total Selling Expenses</td>
 
-                                </div>
-                                <div class="result-section">
-                                    <div class="result-title">
-                                        <h4>Estimated Equity to Seller</h4>
-                                    </div>
-                                    <div class="result-number">
-                                        <h1><span>$ </span><span id="selling-equity"></span></h1>
-                                    </div>
+                                    <td class="result-total-amount" id="selling-expenses" style="text-align: right;">
+                                    </td>
+                                </tr>
 
-                                </div>
+                                <tr>
+                                    <td class="result-total" colspan="3">Estimated Equity to Seller</td>
+                                    <td class="result-total-amount" id="selling-equity" style="text-align: right;"></td>
+                                </tr>
 
-                            </div>
+                            </table>
+
 
                         </div>
 
@@ -592,61 +603,8 @@
     </div>
 
 
-    <div class="container d-flex justify-content-center">
-        <div class="result-table-container" style="background-color :white;">
-            <table id="result-basic-info" style="width :100%;">
-                <tr style="line-height : 14px;">
-                    <td style="width : 50%;color : #343a40;font-weight : bold;font-size : 16px;text-align: left;">Seller
-                        Name :
-                    </td>
-                    <td style="width : 50%;color : #343a40;font-weight : bold;font-size : 16px;text-align: left;">
-                        Address :</td>
-                </tr>
-                <tr style="line-height : 14px;">
-                    <td style="width : 50%;color: #818998;font-size : 14px;text-align: left;" id="cnt-seller-name">Md.
-                        Mahmudur
-                        Rahman</td>
-                    <td valign="top" style="width : 50%;color : #818998;font-size : 14px;text-align: left;"
-                        id="cnt-seller-name" id="cnt-property-address" rowspan="3">House-1, Road-2, Block-J, Baridhara,
-                        Dhaka</td>
-                </tr style="line-height : 14px;">
-                <tr>
-                    <td style="width : 50%;color : #343a40;font-weight : bold;font-size : 16px;text-align: left;">
-                        Prepared By :
-                    </td>
 
-                </tr>
-                <tr style="line-height : 14px;">
-                    <td style="width : 50%;color : #818998;font-size : 14px;text-align: left;" id="cnt-seller-name"
-                        id="cnt-prepared-by">Alamin Hossain</td>
-                </tr>
-            </table>
 
-            <table id="main-result-table">
-                <tr>
-                    <th>Name</th>
-                    <th>age</th>
-                    <th>company</th>
-                </tr>
-                <tr>
-                    <td>Mahmud</td>
-                    <td>28</td>
-                    <td>Okapia</td>
-                </tr>
-                <tr>
-                    <td>Mahmud</td>
-                    <td>28</td>
-                    <td>Okapia</td>
-                </tr>
-                <tr>
-                    <td>Mahmud</td>
-                    <td>28</td>
-                    <td>Okapia</td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
 
 
 
@@ -655,18 +613,10 @@
     <script src="plugins/accounting/accounting.min.js"></script>
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-
-    <script src="plugins/jspdf/jsPdf.js"></script>
-    <script src="plugins/jspdf-autotable/jspdf_autotble.js"></script>
-    <script src="plugins/htmltocanvas/html2canvas.min.js"></script>
-    <script src="plugins/printThis/printThis.js"></script>
-
-
-
+    <script src="plugins/xepOnline/xepOnline.js"></script>
     <script src="counties.js"></script>
     <script src="main.js"></script>
     <script src="netsheet.js"></script>
-    <script src="pdf_renderer.js"></script>
 </body>
 
 </html>
