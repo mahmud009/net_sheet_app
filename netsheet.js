@@ -1,3 +1,17 @@
+//Helper function insert some dynamic field to the result
+//=======================================================
+function insertToResult(fieldName, fieldId, pushTo) {
+  let template = `
+  <div class="cnt-row">
+      <div class="cnt-sub-title">${fieldName}</div>
+      <div class="cnt-value"><span>$</span><span
+              id="${fieldId}"></span></div>
+  
+</div>`;
+  pushTo.append(template);
+}
+//xxxxxxxxxxxxxxx--End helper function--xxxxxxxxxxxxxxxxxxxxxxxx
+
 //Helper function used in dynamic value function
 // Calculating title policy included in section-2
 //==============================================
@@ -170,7 +184,6 @@ function settingDynamicValues() {
 
   // Dynamic property tax proration on section-2
   // from Annual property tax
-
   $("#annual-tax, #monthly-tax, #pro-ration-due, #closing-date").on(
     "change",
     function () {
@@ -185,7 +198,89 @@ function settingDynamicValues() {
       }
     }
   );
+
+  //Dynamic second half tax field insert on
+  // section-4 based on second-half tax;
+  $("#second-half-tax, #select-current-tax").on("change", function () {
+    if ($("#second-half-tax").val() > 0) {
+      insertToResult(
+        "Second Half Tax",
+        "cnt-calc-second-half-tax",
+        $(".cnt-tax-body")
+      );
+    } else {
+      $("#cnt-calc-second-half-tax").parents(".cnt-row").remove();
+    }
+  });
+
+  //Reusable cost field name
+  //transfer to the result
+  $(".reusable-cost-name").on("change", function () {
+    if ($(this).val() != "") {
+      insertToResult(
+        $(this).val(),
+        `cnt-reusable-cost-${$(this).data("index")}`,
+        $(".cnt-reusable-body")
+      );
+    } else {
+      $(`#cnt-reusable-cost-${$(this).data("index")}`)
+        .parents(".cnt-row")
+        .remove();
+    }
+  });
 }
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//===================================================
+// Result sheet generator function
+//===================================================
+function resultSheetGenerate() {
+  let elementsToCalculate = [
+    $("#prepared-by"),
+    $("#seller-name"),
+    $("#property-address"),
+    $("#calc-sales-price"),
+    $("#mortgage-balance-1"),
+    $("#mortgage-balance-2"),
+    $("#transfer-fees"),
+    $("#tax-proration"),
+    $("#calc-second-half-tax"),
+    $("#title-policy"),
+    $("#s-estate-fee-amount"),
+    $("#l-estate-fee-amount"),
+    $("#seller-closing-fee"),
+    $("#title-commitment-binder"),
+    $("#title-search-fee"),
+    $("#document-prep"),
+    $("#courier-others"),
+    $("#record-service"),
+    $("#home-warranty"),
+    $("#gas-line"),
+    $("#overnight-shipping"),
+    $("#additional-cost"),
+    $("#reusable-cost-1"),
+    $("#reusable-cost-2"),
+    $("#reusable-cost-3"),
+  ];
+
+  let idMap = elementsToCalculate.map((m) => {
+    return m.attr("id");
+  });
+
+  for (id of idMap) {
+    let value = $(`#${id}`).val();
+    let alpha = /[a-z]|[A-Z]/;
+    let resultElement = $("#main-result-body").find(`#cnt-${id}`);
+
+    if (!alpha.test(value)) {
+      resultElement.text(accounting.formatMoney(value));
+    } else {
+      resultElement.text(value);
+    }
+  }
+}
+
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -194,6 +289,9 @@ function settingDynamicValues() {
 //===================================================
 
 function calculateAll() {
+  // Initialize Result Sheet
+  resultSheetGenerate();
+
   //Sales and mortgage values
   let saleValue = Number($("#calc-sales-price").val());
   let mortgages = [
@@ -220,15 +318,16 @@ function calculateAll() {
     Number($("#reusable-cost-1").val()),
     Number($("#reusable-cost-2").val()),
     Number($("#reusable-cost-3").val()),
+    Number($("#courier-others").val()),
+    Number($("#record-service").val()),
   ];
 
   let expenses = costs.reduce((a, b) => a + b);
   let mortgage_sum = mortgages.reduce((a, b) => a + b);
   let equity = saleValue - expenses - mortgage_sum;
 
-  $("#selling-expenses").text(expenses);
-  $("#selling-equity").text(equity);
-  console.log("calculated");
+  $("#selling-expenses").text(expenses.toFixed(2));
+  $("#selling-equity").text(equity.toFixed(2));
 }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -17,7 +17,7 @@
 
     <div class="container  d-flex justify-content-center">
 
-        <div class="main-form-wrapper d-flex justify-content-center flex-column">
+        <div class="main-form-wrapper d-flex justify-content-center flex-column" id="main-form-wrapper">
 
             <div class="indicator-wrapper" id="form-indicator-wrapper">
                 <button class="indicator-btn indicator-active" id="indicator-btn-1" data-tabindex="1">1</button>
@@ -356,8 +356,8 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <input type="text" name="reusable-cost-name-1" class="reusable-cost-name"
-                                        placeholder="Click to add cost name">
+                                    <input type="text" name="reusable-cost-name-1" data-index="1"
+                                        class="reusable-cost-name" placeholder="Click to add cost name">
                                     <div class="field-wrapper">
                                         <input name="reusable-cost-1" type="number" id="reusable-cost-1">
                                         <span class="input-icon dollar-icon"></span>
@@ -365,8 +365,8 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <input type="text" name="reusable-cost-name-2" class="reusable-cost-name"
-                                        placeholder="Click to add cost name">
+                                    <input type="text" name="reusable-cost-name-2" data-index="2"
+                                        class="reusable-cost-name" placeholder="Click to add cost name">
                                     <div class="field-wrapper">
                                         <input name="reusable-cost-2" type="number" id="reusable-cost-2">
                                         <span class="input-icon dollar-icon"></span>
@@ -374,8 +374,8 @@
                                 </div>
 
                                 <div class="input-wrapper wide-input">
-                                    <input type="text" name="reusable-cost-name-3" class="reusable-cost-name"
-                                        placeholder="Click to add cost name">
+                                    <input type="text" name="reusable-cost-name-3" data-index="3"
+                                        class="reusable-cost-name" placeholder="Click to add cost name">
                                     <div class="field-wrapper">
                                         <input name="reusable-cost-3" type="number" id="reusable-cost-3">
                                         <span class="input-icon dollar-icon"></span>
@@ -391,20 +391,19 @@
                         </div>
 
                         <div class="result-body" id="main-result-body">
-                            <div class="result-content">
+                            <div class="result-content" id="result-content">
                                 <div class="info-section">
                                     <div class="cnt-row">
                                         <div class="cnt-title">PREPARED FOR : </div>
-                                        <div class="cnt-value" id="cnt-prepared-for">Md. Mahmudur Rahman</div>
+                                        <div class="cnt-value" id="cnt-seller-name"></div>
                                     </div>
                                     <div class="cnt-row">
                                         <div class="cnt-title">PREPARED BY : </div>
-                                        <div class="cnt-value" id="cnt-prepared-by">Md. Mahmudur Rahman</div>
+                                        <div class="cnt-value" id="cnt-prepared-by"></div>
                                     </div>
                                     <div class="cnt-row">
                                         <div class="cnt-title">ADDRESS : </div>
-                                        <div class="cnt-value" id="cnt-street-address">House : 1, Road : 2, Block : J,
-                                            Baridhara, Dhaka</div>
+                                        <div class="cnt-value" id="cnt-property-address"></div>
                                     </div>
                                 </div>
 
@@ -414,33 +413,34 @@
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Sales Price:</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-sale-price">510000</span></div>
+                                                    id="cnt-calc-sales-price"></span>
+                                            </div>
                                         </div>
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Less Present 1st Mortgage Balance:</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-mortgage-balance-1">15000</span></div>
+                                                    id="cnt-mortgage-balance-1"></span></div>
                                         </div>
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Less Present 2nd Mortgage Balance:</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-mortgage-balance-2">6000</span></div>
+                                                    id="cnt-mortgage-balance-2"></span></div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="cnt-section">
                                     <div class="cnt-sec-title">TAXES</div>
-                                    <div class="cnt-sec-body">
+                                    <div class="cnt-sec-body cnt-tax-body">
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Transfer/Conveyance Fees:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-transfer-fees">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-transfer-fees"></span>
+                                            </div>
                                         </div>
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Property Tax Proration:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-tax-proration">826</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-tax-proration"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -450,8 +450,8 @@
                                     <div class="cnt-sec-body">
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Owners Title Policy:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-title-policy">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-title-policy"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -462,14 +462,13 @@
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Real Estate Fee (Selling Side):</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-s-estate-fee-amount">2243</span></div>
+                                                    id="cnt-s-estate-fee-amount"></span></div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Real Estate Fee (Listing Side):</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-l-estate-fee-amount">2243</span></div>
+                                                    id="cnt-l-estate-fee-amount"></span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -480,90 +479,66 @@
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Seller Closing Fee : </div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-seller-closing-fee">2243</span></div>
+                                                    id="cnt-seller-closing-fee"></span></div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Title Commitment Binder:</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-title-commitment-binder">2243</span></div>
+                                                    id="cnt-title-commitment-binder"></span></div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Title Search Fee:</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-title-search-fee">2243</span></div>
+                                                    id="cnt-title-search-fee"></span></div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Document Prep (Deed):</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-document-prep">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-document-prep"></span>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="cnt-sec-body">
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Courier, Express Mail & Handling:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-courier-others">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-courier-others"></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Recording Service Fee:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-record-service">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-record-service"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="cnt-section">
                                     <div class="cnt-sec-title">OTHER POSSIBLE FEES</div>
-                                    <div class="cnt-sec-body">
+                                    <div class="cnt-sec-body cnt-reusable-body">
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Home Warranty: </div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-home-warranty">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-home-warranty"></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Gas Line Warranty:</div>
                                             <div class="cnt-value"><span>$ </span><span id="cnt-gas-line">2243</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Overnight Shipping Fee:</div>
                                             <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-overnight-shipping">2243</span></div>
+                                                    id="cnt-overnight-shipping"></span></div>
                                         </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
+
                                         <div class="cnt-row">
                                             <div class="cnt-sub-title">Additional Costs:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-additional-cost">2243</span></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="cnt-sec-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Courier, Express Mail & Handling:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-courier-others">2243</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="cnt-sec-body">
-                                        <div class="cnt-row">
-                                            <div class="cnt-sub-title">Recording Service Fee:</div>
-                                            <div class="cnt-value"><span>$ </span><span
-                                                    id="cnt-record-service">2243</span></div>
+                                            <div class="cnt-value"><span>$ </span><span id="cnt-additional-cost"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -596,9 +571,9 @@
                         </div>
 
                         <div class="result-action-buttons">
-                            <button name="pdf">PDF</button>
-                            <button name="print">PRINT</button>
-                            <button name="email">EMAIL</button>
+                            <button name="pdf" id="btn-pdf">PDF</button>
+                            <button name="print" id="btn-print">PRINT</button>
+                            <button name="email" id="btn-email">EMAIL</button>
                         </div>
                     </div>
                 </div>
@@ -614,19 +589,77 @@
 
 
         </div>
+    </div>
 
+
+    <div class="container d-flex justify-content-center">
+        <div class="result-table-container" style="background-color :white;">
+            <table id="result-basic-info" style="width :100%;">
+                <tr style="line-height : 14px;">
+                    <td style="width : 50%;color : #343a40;font-weight : bold;font-size : 16px;text-align: left;">Seller
+                        Name :
+                    </td>
+                    <td style="width : 50%;color : #343a40;font-weight : bold;font-size : 16px;text-align: left;">
+                        Address :</td>
+                </tr>
+                <tr style="line-height : 14px;">
+                    <td style="width : 50%;color: #818998;font-size : 14px;text-align: left;" id="cnt-seller-name">Md.
+                        Mahmudur
+                        Rahman</td>
+                    <td valign="top" style="width : 50%;color : #818998;font-size : 14px;text-align: left;"
+                        id="cnt-seller-name" id="cnt-property-address" rowspan="3">House-1, Road-2, Block-J, Baridhara,
+                        Dhaka</td>
+                </tr style="line-height : 14px;">
+                <tr>
+                    <td style="width : 50%;color : #343a40;font-weight : bold;font-size : 16px;text-align: left;">
+                        Prepared By :
+                    </td>
+
+                </tr>
+                <tr style="line-height : 14px;">
+                    <td style="width : 50%;color : #818998;font-size : 14px;text-align: left;" id="cnt-seller-name"
+                        id="cnt-prepared-by">Alamin Hossain</td>
+                </tr>
+            </table>
+
+            <table id="main-result-table">
+                <tr>
+                    <th>Name</th>
+                    <th>age</th>
+                    <th>company</th>
+                </tr>
+                <tr>
+                    <td>Mahmud</td>
+                    <td>28</td>
+                    <td>Okapia</td>
+                </tr>
+                <tr>
+                    <td>Mahmud</td>
+                    <td>28</td>
+                    <td>Okapia</td>
+                </tr>
+                <tr>
+                    <td>Mahmud</td>
+                    <td>28</td>
+                    <td>Okapia</td>
+                </tr>
+            </table>
+
+        </div>
     </div>
 
 
 
 
     <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/accounting/accounting.min.js"></script>
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="plugins/jspdf/jsPdf.js"></script>
+    <script src="plugins/jspdf-autotable/jspdf_autotble.js"></script>
     <script src="plugins/htmltocanvas/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
-        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
-        crossorigin="anonymous"></script>
+    <script src="plugins/printThis/printThis.js"></script>
 
 
 

@@ -3,6 +3,22 @@
 // settings, default value and others
 //===================================================
 function initForms() {
+  // Accounting Number formating settings
+  accounting.settings = {
+    currency: {
+      symbol: "", // default currency symbol is '$'
+      format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+      decimal: ".", // decimal point separator
+      thousand: ",", // thousands separator
+      precision: 2, // decimal places
+    },
+    number: {
+      precision: 0, // default precision on numbers is 0
+      thousand: ",",
+      decimal: ".",
+    },
+  };
+
   // Enabling tooltip
   $("[data-toggle=tooltip]").tooltip();
   // Getting some icons to add into the input element
@@ -31,6 +47,11 @@ function initForms() {
   $(".down-arrow-icon").html(downArrow);
   $(".percent-icon").html(percentSign);
   $(".day-icon").html(dayIcon);
+
+  // Setting the form wrapper opacity to 1
+  // for smooth loading
+
+  $("#main-form-wrapper").css("opacity", 1);
 
   // Setting default number input value
   $("input[type=number]").attr("value", "0.00");
@@ -90,6 +111,14 @@ function tabbedView() {
   let initialSectionHeight = $("#section-1").height(); //first section height as it is loaded first
   form.height(initialSectionHeight + formHeight); // Set the form height on initial load
 
+  // Navigation back button inactive class
+  //based on section
+  if (activeTab < 2) {
+    $("#tab-back").addClass("next-inactive");
+  } else {
+    $("#tab-back").removeClass("next-inactive");
+  }
+
   $(".tab-nav-btn").on("click", function (e) {
     e.preventDefault();
 
@@ -134,10 +163,20 @@ function tabbedView() {
       class="fas fa-arrow-circle-right"></i>`);
     }
 
+    // Navigation next button inactive class
+    //based on section
     if (activeTab > 3) {
       $("#tab-next").addClass("next-inactive");
     } else {
       $("#tab-next").removeClass("next-inactive");
+    }
+
+    // Navigation back button inactive class
+    //based on section
+    if (activeTab < 2) {
+      $("#tab-back").addClass("next-inactive");
+    } else {
+      $("#tab-back").removeClass("next-inactive");
     }
 
     // After updating the active section variable
@@ -158,6 +197,15 @@ function tabbedView() {
     let activeHeight = $(`#section-${activeTab}`).height();
     $("#net_sheet_form").height(formHeight + activeHeight);
   });
+
+  // Enabling print button
+  $("#btn-print").on("click", function (e) {
+    e.preventDefault();
+    $("#main-result-body").printThis({
+      loadCSS: "print.css",
+      pageTitle: "-",
+    });
+  });
 }
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -168,18 +216,4 @@ function tabbedView() {
 $(function () {
   initForms();
   tabbedView();
-
-  $("button[type=download]").on("click", function (e) {
-    // doc.save(`Seller_net_sheet.pdf`);
-    e.preventDefault();
-    // generate();
-
-    var pdf = new jsPDF("p", "pt", "letter");
-    html2canvas(document.querySelector("#main-result-body")).then((canvas) => {
-      document.body.appendChild(canvas);
-    });
-    pdf.addHTML(document.querySelector("#canvas"), function () {
-      pdf.save("Test.pdf");
-    });
-  });
 });
