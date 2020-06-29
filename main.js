@@ -214,6 +214,7 @@ function enablePdfPrint() {
   $("#btn-print").on("click", function (e) {
     e.preventDefault();
     xepOnline.Formatter.Format("result-contents", {
+      render: "newwin",
       filename: `seller_net_sheet`,
     });
   });
