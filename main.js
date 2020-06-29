@@ -213,17 +213,35 @@ function enablePdfPrint() {
   // Enabling print button
   $("#btn-print").on("click", function (e) {
     e.preventDefault();
-    xepOnline.Formatter.Format("result-contents", {});
+    xepOnline.Formatter.Format("result-contents", {
+      filename: `seller_net_sheet`,
+    });
   });
 
   $("#btn-pdf").on("click", function (e) {
     e.preventDefault();
     xepOnline.Formatter.Format("result-contents", {
       render: "download",
+      filename: `seller_net_sheet`,
     });
   });
 }
 
+function sendEmail() {
+  $("#btn-email").on("click", function (e) {
+    e.preventDefault();
+
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "mahmud.est@gmail.com",
+      Password: "mahmudsagor",
+      To: "urmi.unique15@gmail.com",
+      From: "mahmud.est@gmail.com",
+      Subject: "This is the subject",
+      Body: "And this is the body",
+    }).then((message) => alert(message));
+  });
+}
 //=========================
 // Document ready function
 //=========================
@@ -231,4 +249,5 @@ $(function () {
   initForms();
   tabbedView();
   enablePdfPrint();
+  sendEmail();
 });

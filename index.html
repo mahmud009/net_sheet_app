@@ -391,8 +391,19 @@
                         </div>
 
                         <div class="result-body" id="main-result-body">
+                            <header style="display:none; margin-top:24px;">
+                                <table width="100%">
+                                    <tr>
+                                        <td>Headers and Footers</td>
+                                        <td style="text-align:right">Xportability</td>
+                                    </tr>
+                                </table>
+                            </header>
 
                             <table id="result-contents" style="padding-left:60px">
+
+
+
                                 <tr>
                                     <td class="cell-heading" colspan="2">Seller Name :</td>
                                     <td class="cell-heading res-address" colspan="2" style="padding-left: 100px;">
@@ -401,16 +412,12 @@
 
                                 <tr>
                                     <td class="cell-data" colspan="2" id="cnt-seller-name">Md. Mahmudur Rahman</td>
-                                    <td class="cell-data res-address" colspan="2" rowspan="3"
-                                        style="padding-left: 100px; text-align: justify;">House -
-                                        1, Road-
-                                        2,Block-J,
-                                        Baridhara, Dhaka</td>
+                                    <td class="cell-data res-address" id="cnt-property-address" colspan="2" rowspan="3"
+                                        style="padding-left: 100px; text-align: justify;"></td>
                                 </tr>
 
                                 <tr>
                                     <td class="cell-heading" colspan="2">Prepared By :</td>
-
                                 </tr>
                                 <tr>
                                     <td class="cell-data" colspan="2" id="cnt-prepared-by">Alamin Hossain</td>
@@ -453,18 +460,13 @@
                                     <td class="particular-amount" id="cnt-transfer-fees" style="text-align: right;">
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="second-half-tax-insertable">
                                     <td class="particular-name" colspan="2">Property Tax Proration:</td>
                                     <td class="dollar-sign" style="text-align: right;"></td>
                                     <td class="particular-amount" id="cnt-tax-proration" style="text-align: right;">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="particular-name" colspan="2">cnt-calc-second-half-tax:</td>
-                                    <td class="dollar-sign" style="text-align: right;"></td>
-                                    <td class="particular-amount" id="cnt-calc-second-half-tax"
-                                        style="text-align: right;"></td>
-                                </tr>
+
 
                                 <tr>
                                     <td colspan="4" class="particulars-title">TITLE INSURANCE</td>
@@ -557,7 +559,7 @@
                                         style="text-align: right;"></td>
                                 </tr>
 
-                                <tr>
+                                <tr id="reusable-cost-insertable">
                                     <td class="particular-name" colspan="2">Additional Costs:</td>
                                     <td class="dollar-sign" style="text-align: right;"></td>
                                     <td class="particular-amount" id="cnt-additional-cost" style="text-align: right;">
@@ -614,6 +616,7 @@
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/xepOnline/xepOnline.js"></script>
+    <script src="plugins/smtpjs/smtp.js"></script>
     <script src="counties.js"></script>
     <script src="main.js"></script>
     <script src="netsheet.js"></script>

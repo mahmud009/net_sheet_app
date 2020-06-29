@@ -1,14 +1,15 @@
 //Helper function insert some dynamic field to the result
 //=======================================================
-function insertToResult(fieldName, fieldId, pushTo) {
+function resultNewField(fieldName, fieldId) {
   let template = `
-  <div class="cnt-row">
-      <div class="cnt-sub-title">${fieldName}</div>
-      <div class="cnt-value"><span>$</span><span
-              id="${fieldId}"></span></div>
-  
-</div>`;
-  pushTo.append(template);
+  <tr>
+                                    <td class="particular-name" colspan="2">${fieldName}:</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="${fieldId}"
+                                        style="text-align: right;"></td>
+                                </tr>
+ `;
+  return $(template);
 }
 //xxxxxxxxxxxxxxx--End helper function--xxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -203,13 +204,11 @@ function settingDynamicValues() {
   // section-4 based on second-half tax;
   $("#second-half-tax, #select-current-tax").on("change", function () {
     if ($("#second-half-tax").val() > 0) {
-      insertToResult(
-        "Second Half Tax",
-        "cnt-calc-second-half-tax",
-        $(".cnt-tax-body")
+      resultNewField("Second Half Tax", "cnt-calc-second-half-tax").insertAfter(
+        $("#second-half-tax-insertable")
       );
     } else {
-      $("#cnt-calc-second-half-tax").parents(".cnt-row").remove();
+      $("#cnt-calc-second-half-tax").parents("tr").remove();
     }
   });
 
@@ -217,14 +216,13 @@ function settingDynamicValues() {
   //transfer to the result
   $(".reusable-cost-name").on("change", function () {
     if ($(this).val() != "") {
-      insertToResult(
+      resultNewField(
         $(this).val(),
-        `cnt-reusable-cost-${$(this).data("index")}`,
-        $(".cnt-reusable-body")
-      );
+        `cnt-reusable-cost-${$(this).data("index")}`
+      ).insertAfter($("#reusable-cost-insertable"));
     } else {
       $(`#cnt-reusable-cost-${$(this).data("index")}`)
-        .parents(".cnt-row")
+        .parents("tr")
         .remove();
     }
   });
@@ -277,7 +275,16 @@ function resultSheetGenerate() {
       resultElement.text(accounting.formatMoney(value));
     } else {
       resultElement.text(value);
-      console.log(value);
+    }
+
+    switch (true) {
+      case $("#cnt-seller-name").text() == "0.00 $":
+        $("#cnt-seller-name").text("-");
+        break;
+      case $("#cnt-prepared-by").text() == "0.00 $":
+        $("#cnt-prepared-by").text("-");
+      case $("#cnt-property-address").text() == "0.00 $":
+        $("#cnt-property-address").text("-");
     }
   }
 }
@@ -327,8 +334,16 @@ function calculateAll() {
   let mortgage_sum = mortgages.reduce((a, b) => a + b);
   let equity = saleValue - expenses - mortgage_sum;
 
-  $("#selling-expenses").text(accounting.formatMoney(expenses.toFixed(2)));
-  $("#selling-equity").text(accounting.formatMoney(equity.toFixed(2)));
+  $("#selling-expenses").text(
+    accounting.formatMoney(expenses.toFixed(2), {
+      symbol: "",
+    })
+  );
+  $("#selling-equity").text(
+    accounting.formatMoney(equity.toFixed(2), {
+      symbol: "",
+    })
+  );
 }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

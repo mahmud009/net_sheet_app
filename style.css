@@ -108,7 +108,7 @@ form {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 20px;
+  padding-top: 30px;
   padding-left: 50px;
   padding-right: 50px;
   z-index: 99;
@@ -453,11 +453,12 @@ input.reusable-cost-name {
 .result-total-amount {
   margin: 0;
   color: #525a6c;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 20px !important;
   font-weight: 800;
   padding-top: 15px;
   vertical-align: middle !important;
+  color: #00918e;
 }
 
 @media (max-width: 600px) {
