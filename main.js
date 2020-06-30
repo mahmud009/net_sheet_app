@@ -73,6 +73,20 @@ function initForms() {
     }
   });
 
+  // Setting default date to date input box
+  let date = new Date();
+  date.setMonth(date.getMonth() + 1);
+  let year = date.getFullYear();
+  let month =
+    date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
+  let day =
+    date.getDate() + 1 < 10 ? `0${date.getDate() + 1}` : date.getDate() + 1;
+  let format = `${year}-${month}-${day}`;
+  $("#closing-date").val(format);
+
+  // Setting default pro-ration due based on default date value
+  $("#pro-ration-due").val(calctaxdays($("#closing-date").val()));
+
   // Enable second half tax input based on
   // Current tax paid field value
   $("#select-current-tax").on("change", function () {
@@ -154,10 +168,12 @@ function tabbedView() {
 
     if (activeTab > 2) {
       $("#tab-next").attr("type", "submit");
+      $("#tab-next").addClass("next-final-submit");
       // $("#tab-next").attr("onclick", "calculateAll()");
       $("#tab-next").html(`Calculate <i class="fas fa-check-circle"></i>`);
     } else {
       $("#tab-next").removeAttr("type");
+      $("#tab-next").removeClass("next-final-submit");
       // $("#tab-next").removeAttr("onclick");
       $("#tab-next").html(`Next <i
       class="fas fa-arrow-circle-right"></i>`);

@@ -12,12 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/datepicker/datepicker.css">
     <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="plugins/printjs/print.min.css">
     <link rel="stylesheet" href="style.css?v=1.0.11">
 </head>
 
 <body>
+
+
     <div class="modal fade" id="send-email-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -134,8 +137,8 @@
 
                                 <div class="field-wrapper">
                                     <input name="closing-date" type="date" min="2015-01-01" max="2030-12-31"
-                                        id="closing-date" data-toggle="tooltip" data-placement="top"
-                                        title="Click the calendar icon to enable date-picker">
+                                        value="2020-07-31" id="closing-date" data-toggle="tooltip" data-placement="top"
+                                        title="Click the calendar icon to enable date-picker" data-toggle="datepicker">
                                     <span class="input-icon calendar-icon"></span>
                                 </div>
                             </div>
@@ -176,7 +179,8 @@
                             </div>
 
                             <div class="input-wrapper wide-input">
-                                <label for="second-half-tax">Enter second half tax here</label>
+                                <label for="second-half-tax">Enter <span id="tax-period-a">second half</span> tax
+                                    here</label>
                                 <div class="field-wrapper">
                                     <input readonly name="second-half-tax" type="number" id="second-half-tax">
                                     <span class="input-icon dollar-icon"></span>
@@ -243,7 +247,8 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="calc-second-half-tax">Second Half Tax Due</label>
+                                    <label for="calc-second-half-tax"><span id="tax-period-b">Second Half</span> Tax
+                                        Due</label>
                                     <div class="field-wrapper">
                                         <input readonly name="calc-second-half-tax" type="number"
                                             id="calc-second-half-tax">
@@ -637,9 +642,6 @@
                             class="fas fa-arrow-circle-right"></i></button>
                 </div>
             </form>
-
-
-
         </div>
     </div>
 
@@ -648,6 +650,7 @@
     <script src="plugins/accounting/accounting.min.js"></script>
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/datepicker/datepicker.js"></script>
     <script src="plugins/xepOnline/xepOnline.js"></script>
     <script src="plugins/printjs/print.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>

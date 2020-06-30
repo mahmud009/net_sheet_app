@@ -50,46 +50,94 @@ function titlePolicyCalc(price) {
 }
 //xxxxxxxxxxxxxxx--End helper function--xxxxxxxxxxxxxxxxxxxxxxxx
 
-//Helper function used in dynamic value function
-// Calculating date difference for calculation
+//total 2 Helper function used in dynamic value function
+// Calculating tax days
 // according to financial year
 //==============================================
-function calcDueDays(input) {
-  let date = new Date(input);
-  let month = date.getMonth();
-  let years = [];
-  for (let i = 2015; i <= 2030; i++) {
-    years.push(i);
-  }
+function calctaxdays(input) {
+  let parser = Date.parse(input);
 
-  if (years.includes(date.getFullYear())) {
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let calcDate;
-    let diff;
-    let format;
+  var parts = input.match(/(\d+)/g);
+  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+  let date = new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 
-    switch (true) {
-      case month > 6:
-        format = `${7}/${1}/${year}`;
-        calcDate = new Date(format);
-        diff =
-          Math.floor(Math.abs(calcDate - date) / (1000 * 60 * 60 * 24)) + 182;
-        break;
+  // Calcualte the close date   3/18/07
+  if (date.getMonth() == 11 || date.getMonth() <= 4) {
+    $("#tax-period-a").text("First Half");
+    $("#tax-period-b").text("First Half");
+  } // if jan-jun = first
+  else if (date.getMonth() >= 5 && date.getMonth() <= 10) {
+    $("#tax-period-a").text("Second Half");
+    $("#tax-period-b").text("Second Half");
+  } // if jul-dec = second
 
-      case month <= 6:
-        format = `${1}/${1}/${year}`;
-        calcDate = new Date(format);
-        diff =
-          Math.floor(Math.abs(calcDate - date) / (1000 * 60 * 60 * 24)) + 182;
-        break;
-    }
-    return diff;
+  var clsDate = new Date();
+  clsDate.setYear(date.getFullYear());
+  clsDate.setMonth(date.getMonth());
+  clsDate.setDate(date.getDate());
+  // Calcualte the closest half-year date
+  var postDate = new Date();
+  postDate.setYear(date.getFullYear());
+  if (date.getMonth() >= 6) {
+    postDate.setMonth(6);
+    postDate.setDate(1);
   } else {
-    //Handle error
+    postDate.setMonth(0);
+    postDate.setDate(1);
   }
+  //alert('postdate: ' + postDate);
+  // Calcualte the difference
+  var datediff;
+  datediff = days_between(postDate, clsDate);
+  //alert('totdays: ' + datediff);
+  // Add 6 months for the delay
+  datediff = datediff + 182;
+  //alert('totdays plus six months: ' + datediff);
+  // $("#pro-ration-due").val(datediff);
+  return Math.round(datediff);
 }
+
+function days_between(date1, date2) {
+  // The number of milliseconds in one day
+  var ONE_DAY = 1000 * 60 * 60 * 24;
+  // Convert both dates to milliseconds
+  var date1_ms = date1.getTime();
+  var date2_ms = date2.getTime();
+  // Calculate the difference in milliseconds
+  var difference_ms = Math.abs(date1_ms - date2_ms);
+  // Convert back to days and return
+  return Math.round(difference_ms / ONE_DAY);
+}
+
+//xxxxxxxxxxxxxxx--End of 2 helper function--xxxxxxxxxxxxxxxxxxxxxxxx
+
+// Helper function to calculate days with leap year
+//===================================================
+function computeDays(formDate) {
+  var month, day, year, eoy, boy, closedate, datediff, taxperday;
+  //form.s_documentation.value = formatNum(Number(form.s_documentation.value.replace(/,/g,'')));
+  //form.s_documentation.value = formatNum(200);
+  //form.s_taxsvcfee.value = formatNum(50);
+  //form.s_taxsvcfee.value= "12.00";
+  let date = new Date(formDate);
+  month = date.getMonth() + 1;
+  day = date.getDay() + eval(1);
+  year = date.getFullYear() + eval(1997);
+  today = new Date();
+  eoy = new Date(year, 11, 31);
+  boy = new Date(year, 0, 1);
+  closedate = new Date(year, month, day);
+  datediff = closedate - boy; //difference in millisecs
+  datediff = Math.round(datediff / 86400000); //diff in days
+  // if the close date is in a leap year then calc taxperday based on 366 days, else 365
+  // diffing the date gives one day less than actual, so compare to 365 and 364
+  if ((eoy - boy) / 86400000 == 366 - 1) return 366;
+  // days should be 365 - 1
+  else return 365;
+  // PLUS ONE TO INCLUDE THE ACTUAL CLOSING DAY
+  //form.s_taxproration.value = formatNum(taxperday * (datediff + 1));
+}
+
 //xxxxxxxxxxxxxxx--End helper function--xxxxxxxxxxxxxxxxxxxxxxxx
 
 //===================================================
@@ -159,10 +207,10 @@ function settingDynamicValues() {
   });
 
   // Calculate pro-ration due based on closing
-  // date using calDueDays() helper function
+  // date using calctaxdays() helper function
   $("#closing-date").on("change", function () {
     let dateValue = $(this).val();
-    $("#pro-ration-due").val(calcDueDays(dateValue));
+    $("#pro-ration-due").val(calctaxdays(dateValue));
   });
 
   // Dynamic transfer/conveyance fees
@@ -188,8 +236,10 @@ function settingDynamicValues() {
   $("#annual-tax, #monthly-tax, #pro-ration-due, #closing-date").on(
     "change",
     function () {
+      console.log(computeDays($("#closing-date").val()));
       let annualTax = $("#annual-tax").val();
       let days = $("#pro-ration-due").val();
+      console.log(computeDays($("#closing-date").val()));
       let value = (annualTax / 365) * days;
 
       if (annualTax > 0 && days > 0) {
@@ -355,7 +405,7 @@ function calculateAll() {
 $(function () {
   settingDynamicValues();
 
-  $("#net_sheet_form").on(
+  $(".form-button-group").on(
     "click",
     $("#net_sheet_form button[type=submit]"),
     function (e) {
