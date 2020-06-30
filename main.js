@@ -154,11 +154,11 @@ function tabbedView() {
 
     if (activeTab > 2) {
       $("#tab-next").attr("type", "submit");
-      $("#tab-next").attr("onclick", "calculateAll()");
+      // $("#tab-next").attr("onclick", "calculateAll()");
       $("#tab-next").html(`Calculate <i class="fas fa-check-circle"></i>`);
     } else {
       $("#tab-next").removeAttr("type");
-      $("#tab-next").removeAttr("onclick");
+      // $("#tab-next").removeAttr("onclick");
       $("#tab-next").html(`Next <i
       class="fas fa-arrow-circle-right"></i>`);
     }
@@ -241,7 +241,7 @@ function enablePdfPrint() {
   });
 }
 
-async function sendEmail() {
+function sendEmail() {
   $("#send-email-form").on("submit", function (e) {
     e.preventDefault();
     $("#send-email-modal").modal("hide");
