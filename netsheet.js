@@ -354,4 +354,14 @@ function calculateAll() {
 //===================================================
 $(function () {
   settingDynamicValues();
+
+  $("#net_sheet_form").on(
+    "click",
+    $("#net_sheet_form button[type=submit]"),
+    function (e) {
+      e.preventDefault();
+      console.log("submmitted");
+      calculateAll();
+    }
+  );
 });
