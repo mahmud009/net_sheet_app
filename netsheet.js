@@ -234,7 +234,6 @@ function settingDynamicValues() {
 // Result sheet generator function
 //===================================================
 function resultSheetGenerate() {
-  alert("Generated front");
   let elementsToCalculate = [
     $("#prepared-by"),
     $("#seller-name"),
@@ -355,9 +354,4 @@ function calculateAll() {
 //===================================================
 $(function () {
   settingDynamicValues();
-  $("label[for=select-county]").text(
-    accounting.formatMoney(10000, {
-      symbol: " $",
-    })
-  );
 });

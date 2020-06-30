@@ -288,5 +288,4 @@ $(function () {
   tabbedView();
   enablePdfPrint();
   sendEmail();
-  alert("Executed Script 1");
 });
