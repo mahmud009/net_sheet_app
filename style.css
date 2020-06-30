@@ -504,12 +504,6 @@ input.reusable-cost-name {
   table-layout: fixed;
 }
 
-@media (max-width: 600px) {
-  #result-contents {
-    width: 200px;
-  }
-}
-
 #result-contents td,
 #result-contents th {
   line-height: 14px;
