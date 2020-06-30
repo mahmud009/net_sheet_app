@@ -274,9 +274,9 @@ function resultSheetGenerate() {
 
     if (!alpha.test(value)) {
       // resultElement.text(accounting.formatMoney(value));
-      resultElement.text(value);
+      resultElement.append(value);
     } else {
-      resultElement.text(value);
+      resultElement.append(value);
     }
 
     switch (true) {
@@ -336,13 +336,13 @@ function calculateAll() {
   let mortgage_sum = mortgages.reduce((a, b) => a + b);
   let equity = saleValue - expenses - mortgage_sum;
 
-  $("#selling-expenses").text(
+  $("#selling-expenses").append(
     // accounting.formatMoney(expenses.toFixed(2), {
     //   symbol: "",
     // })
     expenses
   );
-  $("#selling-equity").text(
+  $("#selling-equity").append(
     // accounting.formatMoney(equity.toFixed(2), {
     //   symbol: "",
     // })
