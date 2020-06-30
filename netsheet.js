@@ -287,6 +287,8 @@ function resultSheetGenerate() {
         $("#cnt-property-address").text("-");
     }
   }
+
+  alert("Generated");
 }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
