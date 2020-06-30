@@ -434,6 +434,9 @@ input.reusable-cost-name {
 #result-contents {
   width: 100%;
   table-layout: fixed;
+  @include mobile {
+    width: 200px;
+  }
   td,
   th {
     line-height: 14px;
