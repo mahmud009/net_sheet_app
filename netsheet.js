@@ -355,6 +355,9 @@ function calculateAll() {
 //===================================================
 $(function () {
   settingDynamicValues();
-
-  $("label[for=select-county]").text("Changed Text");
+  $("label[for=select-county]").text(
+    accounting.formatMoney(10000, {
+      symbol: " $",
+    })
+  );
 });
