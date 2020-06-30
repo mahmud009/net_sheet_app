@@ -273,7 +273,8 @@ function resultSheetGenerate() {
     let resultElement = $("#main-result-body").find(`#cnt-${id}`);
 
     if (!alpha.test(value)) {
-      resultElement.text(accounting.formatMoney(value));
+      // resultElement.text(accounting.formatMoney(value));
+      resultElement.text(value);
     } else {
       resultElement.text(value);
     }
@@ -336,14 +337,16 @@ function calculateAll() {
   let equity = saleValue - expenses - mortgage_sum;
 
   $("#selling-expenses").text(
-    accounting.formatMoney(expenses.toFixed(2), {
-      symbol: "",
-    })
+    // accounting.formatMoney(expenses.toFixed(2), {
+    //   symbol: "",
+    // })
+    expenses
   );
   $("#selling-equity").text(
-    accounting.formatMoney(equity.toFixed(2), {
-      symbol: "",
-    })
+    // accounting.formatMoney(equity.toFixed(2), {
+    //   symbol: "",
+    // })
+    equity
   );
 }
 
