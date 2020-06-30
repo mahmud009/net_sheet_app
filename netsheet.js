@@ -234,7 +234,7 @@ function settingDynamicValues() {
 // Result sheet generator function
 //===================================================
 function resultSheetGenerate() {
-  akert("Generated front");
+  alert("Generated front");
   let elementsToCalculate = [
     $("#prepared-by"),
     $("#seller-name"),
