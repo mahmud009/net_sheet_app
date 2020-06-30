@@ -234,6 +234,7 @@ function settingDynamicValues() {
 // Result sheet generator function
 //===================================================
 function resultSheetGenerate() {
+  akert("Generated front");
   let elementsToCalculate = [
     $("#prepared-by"),
     $("#seller-name"),
@@ -287,8 +288,6 @@ function resultSheetGenerate() {
         $("#cnt-property-address").text("-");
     }
   }
-
-  alert("Generated");
 }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
