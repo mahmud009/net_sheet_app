@@ -273,10 +273,9 @@ function resultSheetGenerate() {
     let resultElement = $("#main-result-body").find(`#cnt-${id}`);
 
     if (!alpha.test(value)) {
-      // resultElement.text(accounting.formatMoney(value));
-      resultElement.append(value);
+      resultElement.text(accounting.formatMoney(value));
     } else {
-      resultElement.append(value);
+      resultElement.text(value);
     }
 
     switch (true) {
@@ -336,17 +335,15 @@ function calculateAll() {
   let mortgage_sum = mortgages.reduce((a, b) => a + b);
   let equity = saleValue - expenses - mortgage_sum;
 
-  $("#selling-expenses").append(
-    // accounting.formatMoney(expenses.toFixed(2), {
-    //   symbol: "",
-    // })
-    expenses
+  $("#selling-expenses").text(
+    accounting.formatMoney(expenses.toFixed(2), {
+      symbol: "",
+    })
   );
-  $("#selling-equity").append(
-    // accounting.formatMoney(equity.toFixed(2), {
-    //   symbol: "",
-    // })
-    equity
+  $("#selling-equity").text(
+    accounting.formatMoney(equity.toFixed(2), {
+      symbol: "",
+    })
   );
 }
 
@@ -358,4 +355,6 @@ function calculateAll() {
 //===================================================
 $(function () {
   settingDynamicValues();
+
+  $("label[for=select-county]").text("Changed Text");
 });
