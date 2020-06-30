@@ -236,7 +236,6 @@ function settingDynamicValues() {
   $("#annual-tax, #monthly-tax, #pro-ration-due, #closing-date").on(
     "change",
     function () {
-      console.log(computeDays($("#closing-date").val()));
       let annualTax = $("#annual-tax").val();
       let days = $("#pro-ration-due").val();
       console.log(computeDays($("#closing-date").val()));
