@@ -1,3 +1,15 @@
+let base64Data;
+
+function receiveBase64Data(data) {
+  return new Promise((res, rej) => {
+    if (data) {
+      res(data);
+    } else {
+      res();
+    }
+  });
+}
+
 String.prototype.toCamel = function () {
   return this.replace(/(\-[a-z])/g, function ($1) {
     return $1.toUpperCase().replace("-", "");
@@ -1241,9 +1253,12 @@ xepOnline.Formatter = {
       layer = jQuery(win.document);
     }
   },
-  __postBackSuccess: function (Response) {
-    jQuery(document).trigger("xepOnlineStatus", ["Finished"]);
+  __postBackSuccess: async function (Response) {
     var base64 = jQuery(Response).find("Result").text();
+
+    // Custom functionality
+    base64Data = await receiveBase64Data(base64);
+    jQuery(document).trigger("xepOnlineStatus", ["Finished"]);
 
     if (current_mimetype == "image/svg+xml") {
       if (
@@ -1321,7 +1336,8 @@ xepOnline.Formatter = {
           "data-xeponline-embed-pending"
         ) === "true"
       ) {
-        jQuery(xepOnline.Formatter.__elm).html(objbuilder);
+        // //Disabling the object inject to dom to attach base64data to mail
+        // jQuery(xepOnline.Formatter.__elm).html(objbuilder);
       } else {
         var win = window.open("", "_blank", "titlebar=yes");
         win.document.title = "XEPOnline Result";

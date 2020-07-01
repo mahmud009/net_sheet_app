@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/datepicker/datepicker.css">
     <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="plugins/printjs/print.min.css">
     <link rel="stylesheet" href="style.css?v=1.1.0">
 </head>
 
 <body>
+
+
     <div class="modal fade" id="send-email-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -82,6 +82,7 @@
                     <div class="calc-section" id="section-1">
                         <div class="section-header">
                             <h3>General Information</h3>
+                            <p>Required fields are marked with **</p>
                         </div>
                         <div class="basic-info-wrapper">
                             <div class="input-wrapper wide-input">
@@ -190,6 +191,7 @@
                     <div class="calc-section" id="section-2">
                         <div class="section-header">
                             <h3>Input and adjust</h3>
+                            <p>Required fields are marked with **</p>
                         </div>
                         <div class="input-with-header">
 
@@ -315,6 +317,7 @@
                     <div class="calc-section" id="section-3">
                         <div class="section-header">
                             <h3>Input and adjust</h3>
+                            <p>Required fields are marked with **</p>
                         </div>
                         <div class="input-with-header">
                             <h5>Transaction Fees</h5>
@@ -439,14 +442,23 @@
 
                     <div class="calc-section" id="section-4">
                         <div class="section-header">
-                            <h3>Seller's Net Sheet</h3>
+
                         </div>
 
                         <div class="result-body" id="main-result-body">
-                            <table id="result-contents" style="padding-left:60px">
+                            <table id="result-contents">
+                                <tr style="border-bottom: 1px solid #525a6c;">
+                                    <td class="result-logo">
+                                        <img id="result-logo-img" src="" alt="logo">
+                                    </td>
+                                    <td class="result-heading" colspan="3">
+                                        Seller's Net Sheet
+                                    </td>
+                                </tr>
                                 <tr>
-                                    <td class="cell-heading" colspan="2">Seller Name :</td>
-                                    <td class="cell-heading res-address" colspan="2" style="padding-left: 100px;">
+                                    <td style="padding-top : 15px" class="cell-heading" colspan="2">Seller Name :</td>
+                                    <td style="padding-top : 15px" class="cell-heading res-address" colspan="2"
+                                        style="padding-left: 100px;">
                                         Address :</td>
                                 </tr>
 
@@ -619,6 +631,21 @@
                                     <td class="result-total-amount" id="selling-equity" style="text-align: right;"></td>
                                 </tr>
 
+                                <tr>
+                                    <td class="result-disclaimer" colspan="4">
+                                        DISCLAIMER: Our Net Calculations are provided for illustrative purposes only.
+                                        Total Title Services, LLC make no guarantee or other assurance concerning the
+                                        accuracy or completeness of information produced by the calculator or the
+                                        applicability of the data input to your particular situation. The data and
+                                        information produced by it are provided "AS IS" without representation or
+                                        warranty from of any kind. User assumes the risk that data and/or calculation
+                                        errors may occur. To ensure that all figures and calculations are correct and
+                                        relevant to your situation, we encourage you to contact an escrow officer to
+                                        discuss your specific title insurance needs and to verify all costs and fees
+                                        prior to closing.
+                                    </td>
+                                </tr>
+
                             </table>
 
 
@@ -648,14 +675,11 @@
     <script src="plugins/accounting/accounting.min.js"></script>
     <script src="plugins/popper/popper.min.js"></script>
     <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/datepicker/datepicker.js"></script>
     <script src="plugins/xepOnline/xepOnline.js"></script>
-    <script src="plugins/printjs/print.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="counties.js"></script>
     <script src="main.js?v=1.1.3"></script>
     <script src="netsheet.js?v=1.1.9"></script>
-    <!-- <script src="compiled.js"></script> -->
 </body>
 
 </html>

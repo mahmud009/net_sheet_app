@@ -161,13 +161,18 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 0;
   h3 {
     margin-bottom: 0;
     font-size: 18px;
-
     font-weight: bold;
+  }
+  p {
+    font-size: 14px;
+    color: #00aba7;
+    text-align: center;
   }
 }
 
@@ -508,4 +513,25 @@ input.reusable-cost-name {
       border-radius: 10px;
     }
   }
+}
+
+.result-logo {
+  img {
+    width: 80px;
+  }
+}
+.result-heading {
+  text-align: left;
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  vertical-align: bottom !important;
+  padding-bottom: 30px;
+}
+
+.result-disclaimer {
+  font-size: 12px;
+  color: lighten(#818999, 15%);
+  padding-top: 20px;
+  text-align: justify;
 }
