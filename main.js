@@ -1,3 +1,24 @@
+xepOnline.Formatter.Format("result-contents", {
+  render: "embed",
+  filename: `seller_net_sheet`,
+});
+
+$(document).on("xepOnlineStatus", async function (e, s) {
+  if (s == "Finished") {
+    function getPdfData(data) {
+      return new Promise((res, rej) => {
+        if (data) {
+          res(data);
+        } else {
+          rej();
+        }
+      });
+    }
+
+    pdfData = await getPdfData(base64Data);
+    console.log(pdfData);
+  }
+});
 // ==============================================
 // Prevent Email button event Bubbling using
 // Below tricks
