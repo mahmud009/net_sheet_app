@@ -171,9 +171,18 @@ form {
   }
   p {
     font-size: 14px;
-    color: #00aba7;
+    color: #818998;
     text-align: center;
   }
+}
+
+.required-marker {
+  font-weight: bold;
+  font-size: 8px;
+  color: darken(#00aba7, 20%);
+  display: inline-block;
+  padding-right: 3px;
+  transform: translateY(-2px);
 }
 
 .calc-section {

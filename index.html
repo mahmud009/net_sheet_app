@@ -83,11 +83,13 @@
                     <div class="calc-section" id="section-1">
                         <div class="section-header">
                             <h3>General Information</h3>
-                            <p>Required fields are marked with **</p>
+                            <p>Required fields are marked with <span class="required-marker"><i
+                                        class="fas fa-star"></i></span></p>
                         </div>
                         <div class="basic-info-wrapper">
                             <div class="input-wrapper wide-input">
-                                <label for="prepared-by">Prepared By</label>
+                                <label for="prepared-by"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Prepared By</label>
                                 <div class="field-wrapper">
                                     <input name="prepared-by" type="text" id="prepared-by" placeholder="Prepared by">
                                     <span class="input-icon text-icon"></span>
@@ -95,7 +97,8 @@
                             </div>
 
                             <div class="input-wrapper wide-input">
-                                <label for="seller-name">Seller Name</label>
+                                <label for="seller-name"><span class="required-marker"><i
+                                            class="fas fa-star"></i></i></span>Seller Name</label>
                                 <div class="field-wrapper">
                                     <input name="seller-name " type="text" id="seller-name" placeholder="Seller name">
                                     <span class="input-icon text-icon"></span>
@@ -103,7 +106,9 @@
                             </div>
 
                             <div class="input-wrapper wide-input">
-                                <label for="property-address">Property Address</label>
+                                <label for="property-address"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Property
+                                    Address</label>
                                 <div class="field-wrapper">
                                     <input name="property-address" type="text" id="property-address"
                                         placeholder="Enter address">
@@ -112,7 +117,8 @@
                             </div>
 
                             <div class="input-wrapper select-wrapper wide-input">
-                                <label for="select-county">Select County</label>
+                                <label for="select-county"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Select County</label>
                                 <div class="field-wrapper">
                                     <select name="select-county" id="select-county">
                                         <option value="none">Select county</option>
@@ -124,7 +130,8 @@
 
                         <div class="amount-info-wrapper">
                             <div class="input-wrapper">
-                                <label for="sale-price">Sale Price</label>
+                                <label for="sale-price"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Sale Price</label>
 
                                 <div class="field-wrapper">
                                     <input name="sale-price" type="number" id="sale-price">
@@ -133,7 +140,8 @@
                             </div>
 
                             <div class="input-wrapper date-wrapper">
-                                <label for="closing-date">Closing Date</label>
+                                <label for="closing-date"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Closing Date</label>
 
                                 <div class="field-wrapper">
                                     <input name="closing-date" type="date" min="2015-01-01" max="2030-12-31"
@@ -144,7 +152,8 @@
                             </div>
 
                             <div class="input-wrapper">
-                                <label for="annual-tax">Annual Property Tax</label>
+                                <label for="annual-tax"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Annual Property Tax</label>
                                 <div class="field-wrapper">
                                     <input name="annual-tax" type="number" id="annual-tax">
                                     <span class="input-icon dollar-icon"></span>
@@ -152,7 +161,8 @@
                             </div>
 
                             <div class="input-wrapper">
-                                <label for="monthly-tax">Monthly Property Tax</label>
+                                <label for="monthly-tax"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Monthly Property Tax</label>
                                 <div class="field-wrapper">
                                     <input name="monthly-tax" type="number" id="monthly-tax">
                                     <span class="input-icon dollar-icon"></span>
@@ -160,7 +170,8 @@
                             </div>
 
                             <div class="input-wrapper days-wrapper">
-                                <label for="pro-ration-due">Proration Due at Closing for</label>
+                                <label for="pro-ration-due"><span class="required-marker"><i
+                                            class="fas fa-star"></i></span>Proration Due at Closing for</label>
                                 <div class="field-wrapper">
                                     <input name="pro-ration-due" type="number" id="pro-ration-due">
                                     <span class="input-icon day-icon"></span>
@@ -192,7 +203,8 @@
                     <div class="calc-section" id="section-2">
                         <div class="section-header">
                             <h3>Input and adjust</h3>
-                            <p>Required fields are marked with **</p>
+                            <p>Required fields are marked with <span class="required-marker"><i
+                                        class="fas fa-star"></i></span></p>
                         </div>
                         <div class="input-with-header">
 
@@ -232,7 +244,8 @@
                             <h5>Taxes</h5>
                             <div class="amount-info-wrapper">
                                 <div class="input-wrapper wide-input">
-                                    <label for="transfer-fees">Transfer/Conveyance Fees</label>
+                                    <label for="transfer-fees"><span class="required-marker"><i
+                                                class="fas fa-star"></i></span>Transfer/Conveyance Fees</label>
                                     <div class="field-wrapper">
                                         <input name="transfer-fees" type="number" id="transfer-fees">
                                         <span class="input-icon dollar-icon"></span>
@@ -240,7 +253,8 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="tax-proration">Property Tax Proration</label>
+                                    <label for="tax-proration"><span class="required-marker"><i
+                                                class="fas fa-star"></i></span>Property Tax Proration</label>
                                     <div class="field-wrapper">
                                         <input name="tax-proration" type="number" id="tax-proration">
                                         <span class="input-icon dollar-icon"></span>
@@ -260,7 +274,7 @@
                         </div>
 
                         <div class="input-with-header">
-                            <h5>Title Insurance</h5>
+                            <h5><span class="required-marker"><i class="fas fa-star"></i></span>Title Insurance</h5>
                             <div class="amount-info-wrapper">
                                 <div class="input-wrapper wide-input">
                                     <label for="title-policy">Owners Title Policy</label>
@@ -318,7 +332,8 @@
                     <div class="calc-section" id="section-3">
                         <div class="section-header">
                             <h3>Input and adjust</h3>
-                            <p>Required fields are marked with **</p>
+                            <p>Required fields are marked with <span class="required-marker"><i
+                                        class="fas fa-star"></i></span></p>
                         </div>
                         <div class="input-with-header">
                             <h5>Transaction Fees</h5>

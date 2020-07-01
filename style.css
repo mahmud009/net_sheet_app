@@ -185,8 +185,18 @@ form {
 
 .section-header p {
   font-size: 14px;
-  color: #00aba7;
+  color: #818998;
   text-align: center;
+}
+
+.required-marker {
+  font-weight: bold;
+  font-size: 8px;
+  color: #004543;
+  display: inline-block;
+  padding-right: 3px;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 
 .calc-section {
