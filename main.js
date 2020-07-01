@@ -245,32 +245,32 @@ function enablePdfPrint() {
   $("#btn-print").on("click", function (e) {
     e.preventDefault();
 
-    xepOnline.Formatter.Format("result-contents", {
-      render: "embed",
-      filename: `seller_net_sheet`,
+    printJS({
+      printable: "result-contents",
+      type: "html",
+      // base64: true,
     });
 
-    $(document).on("xepOnlineStatus", async function (e, s) {
-      if (s == "Finished") {
-        function getPdfData(data) {
-          return new Promise((res, rej) => {
-            if (data) {
-              res(data);
-            } else {
-              rej();
-            }
-          });
-        }
+    // xepOnline.Formatter.Format("result-contents", {
+    //   render: "embed",
+    //   filename: `seller_net_sheet`,
+    // });
 
-        pdfData = await getPdfData(base64Data);
+    // $(document).on("xepOnlineStatus", async function (e, s) {
+    //   if (s == "Finished") {
+    //     function getPdfData(data) {
+    //       return new Promise((res, rej) => {
+    //         if (data) {
+    //           res(data);
+    //         } else {
+    //           rej();
+    //         }
+    //       });
+    //     }
 
-        printJS({
-          printable: pdfData,
-          type: "pdf",
-          base64: true,
-        });
-      }
-    });
+    //     pdfData = await getPdfData(base64Data);
+    //   }
+    // });
   });
 
   $("#btn-pdf").on("click", function (e) {
