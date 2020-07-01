@@ -1279,29 +1279,29 @@ xepOnline.Formatter = {
           .getElementById(jQuery(xepOnline.Formatter.__elm).attr("id"))
           .appendChild(dom.documentElement);
       } else {
-        var win = window.open("", "_blank", "titlebar=yes");
-        win.document.title = "XEPOnline Result";
-        win.document.write("<html><head>");
-        jQuery.each(jQuery("link[href*='googleapis']"), function (
-          index,
-          value
-        ) {
-          win.document.write(value.outerHTML);
-        });
-        win.document.write(
-          '</head><body height="100%"><div id="target" style="height:100%;overflow-y:auto">'
-        );
-        win.document.write("</div></body></html>");
-        var parser = new DOMParser();
-        var dom = parser.parseFromString(
-          bufferToBinaryString(base64ToBuffer(base64)).replace(
-            "ÃƒÂ¯Ã‚Â»Ã‚Â¿",
-            ""
-          ),
-          "text/xml"
-        );
-        win.document.getElementById("target").appendChild(dom.documentElement);
-        layer = jQuery(win.document);
+        // var win = window.open("", "_blank", "titlebar=yes");
+        // win.document.title = "XEPOnline Result";
+        // win.document.write("<html><head>");
+        // jQuery.each(jQuery("link[href*='googleapis']"), function (
+        //   index,
+        //   value
+        // ) {
+        //   win.document.write(value.outerHTML);
+        // });
+        // win.document.write(
+        //   '</head><body height="100%"><div id="target" style="height:100%;overflow-y:auto">'
+        // );
+        // win.document.write("</div></body></html>");
+        // var parser = new DOMParser();
+        // var dom = parser.parseFromString(
+        //   bufferToBinaryString(base64ToBuffer(base64)).replace(
+        //     "ÃƒÂ¯Ã‚Â»Ã‚Â¿",
+        //     ""
+        //   ),
+        //   "text/xml"
+        // );
+        // win.document.getElementById("target").appendChild(dom.documentElement);
+        // layer = jQuery(win.document);
       }
     } else {
       // var objbuilder = "";
