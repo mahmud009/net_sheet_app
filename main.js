@@ -245,32 +245,31 @@ function enablePdfPrint() {
   $("#btn-print").on("click", function (e) {
     e.preventDefault();
 
-    printJS({
-      printable: "result-contents",
-      type: "html",
-      // base64: true,
+    xepOnline.Formatter.Format("result-contents", {
+      render: "embed",
+      filename: `seller_net_sheet`,
     });
 
-    // xepOnline.Formatter.Format("result-contents", {
-    //   render: "embed",
-    //   filename: `seller_net_sheet`,
-    // });
+    $(document).on("xepOnlineStatus", async function (e, s) {
+      if (s == "Finished") {
+        function getPdfData(data) {
+          return new Promise((res, rej) => {
+            if (data) {
+              res(data);
+            } else {
+              rej();
+            }
+          });
+        }
 
-    // $(document).on("xepOnlineStatus", async function (e, s) {
-    //   if (s == "Finished") {
-    //     function getPdfData(data) {
-    //       return new Promise((res, rej) => {
-    //         if (data) {
-    //           res(data);
-    //         } else {
-    //           rej();
-    //         }
-    //       });
-    //     }
-
-    //     pdfData = await getPdfData(base64Data);
-    //   }
-    // });
+        pdfData = await getPdfData(base64Data);
+        printJS({
+          printable: pdfData,
+          type: "pdf",
+          base64: true,
+        });
+      }
+    });
   });
 
   $("#btn-pdf").on("click", function (e) {

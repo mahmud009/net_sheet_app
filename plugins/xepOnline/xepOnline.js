@@ -950,16 +950,17 @@ xepOnline.Formatter = {
 
     return (builder += data || "");
   },
-  xep_chandra_service: "//xep.cloudformatter.com/Chandra.svc/genpackage",
-  xep_chandra_service_AS_PDF: "//xep.cloudformatter.com/Chandra.svc/genfile",
+  xep_chandra_service: "http://xep.cloudformatter.com/Chandra.svc/genpackage",
+  xep_chandra_service_AS_PDF:
+    "http://xep.cloudformatter.com/Chandra.svc/genfile",
   xep_chandra_service_page_images:
-    "//xep.cloudformatter.com/Chandra.svc/genpageimages",
+    "http://xep.cloudformatter.com/Chandra.svc/genpageimages",
   entity_declaration:
-    '<!DOCTYPE div [  <!ENTITY % winansi SYSTEM "//xep.cloudformatter.com/doc/XSL/winansi.xml">  %winansi;]>',
+    '<!DOCTYPE div [  <!ENTITY % winansi SYSTEM "http://xep.cloudformatter.com/doc/XSL/winansi.xml">  %winansi;]>',
   xsl_stylesheet_declaration:
-    '<?xml-stylesheet type="text/xsl" href="//xep.cloudformatter.com/doc/XSL/xeponline-fo-translate-2.xsl"?>',
+    '<?xml-stylesheet type="text/xsl" href="http://xep.cloudformatter.com/doc/XSL/xeponline-fo-translate-2.xsl"?>',
   svg_xsl_stylesheet_declaration:
-    '<?xml-stylesheet type="text/xsl" href="//xep.cloudformatter.com/doc/XSL/xeponline-svg-translate.xsl"?>',
+    '<?xml-stylesheet type="text/xsl" href="http://xep.cloudformatter.com/doc/XSL/xeponline-svg-translate.xsl"?>',
   src_type: { xml: "text/xml" },
   mime_type: {
     pdf: "application/pdf",
