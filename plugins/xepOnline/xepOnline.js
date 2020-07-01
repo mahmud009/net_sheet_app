@@ -1304,51 +1304,51 @@ xepOnline.Formatter = {
         layer = jQuery(win.document);
       }
     } else {
-      var objbuilder = "";
-      objbuilder += '<object width="100%"';
-      objbuilder += ' height="';
-      if (
-        jQuery(xepOnline.Formatter.__container).attr(
-          "data-xeponline-embed-pending"
-        ) === "true"
-      ) {
-        objbuilder += current_height;
-      } else {
-        objbuilder += "100%";
-      }
-      objbuilder += '" data="data:';
-      objbuilder += current_mimetype;
-      objbuilder += ";base64,";
-      objbuilder += base64;
-      objbuilder += '" type="';
-      objbuilder += current_mimetype;
-      objbuilder += '" class="internal">';
-      objbuilder += '<embed src="data:';
-      objbuilder += current_mimetype;
-      objbuilder += ";base64,";
-      objbuilder += base64;
-      objbuilder += '" type="';
-      objbuilder += current_mimetype;
-      objbuilder += '" />';
-      objbuilder += "</object>";
-      if (
-        jQuery(xepOnline.Formatter.__container).attr(
-          "data-xeponline-embed-pending"
-        ) === "true"
-      ) {
-        // //Disabling the object inject to dom to attach base64data to mail
-        // jQuery(xepOnline.Formatter.__elm).html(objbuilder);
-      } else {
-        var win = window.open("", "_blank", "titlebar=yes");
-        win.document.title = "XEPOnline Result";
-        win.document.write("<html><head>");
-        win.document.write(
-          '</head><body height="100%"><div id="target" style="height:100%;overflow-y:auto">'
-        );
-        win.document.write(objbuilder);
-        win.document.write("</div></body></html>");
-        layer = jQuery(win.document);
-      }
+      // var objbuilder = "";
+      // objbuilder += '<object width="100%"';
+      // objbuilder += ' height="';
+      // if (
+      //   jQuery(xepOnline.Formatter.__container).attr(
+      //     "data-xeponline-embed-pending"
+      //   ) === "true"
+      // ) {
+      //   objbuilder += current_height;
+      // } else {
+      //   objbuilder += "100%";
+      // }
+      // objbuilder += '" data="data:';
+      // objbuilder += current_mimetype;
+      // objbuilder += ";base64,";
+      // objbuilder += base64;
+      // objbuilder += '" type="';
+      // objbuilder += current_mimetype;
+      // objbuilder += '" class="internal">';
+      // objbuilder += '<embed src="data:';
+      // objbuilder += current_mimetype;
+      // objbuilder += ";base64,";
+      // objbuilder += base64;
+      // objbuilder += '" type="';
+      // objbuilder += current_mimetype;
+      // objbuilder += '" />';
+      // objbuilder += "</object>";
+      // if (
+      //   jQuery(xepOnline.Formatter.__container).attr(
+      //     "data-xeponline-embed-pending"
+      //   ) === "true"
+      // ) {
+      //   // //Disabling the object inject to dom to attach base64data to mail
+      //   // jQuery(xepOnline.Formatter.__elm).html(objbuilder);
+      // } else {
+      //   var win = window.open("", "_blank", "titlebar=yes");
+      //   win.document.title = "XEPOnline Result";
+      //   win.document.write("<html><head>");
+      //   win.document.write(
+      //     '</head><body height="100%"><div id="target" style="height:100%;overflow-y:auto">'
+      //   );
+      //   win.document.write(objbuilder);
+      //   win.document.write("</div></body></html>");
+      //   layer = jQuery(win.document);
+      // }
     }
   },
   __processImages: function (Response) {
