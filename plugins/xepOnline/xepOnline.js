@@ -1266,18 +1266,18 @@ xepOnline.Formatter = {
           "data-xeponline-embed-pending"
         ) === "true"
       ) {
-        var parser = new DOMParser();
-        var dom = parser.parseFromString(
-          bufferToBinaryString(base64ToBuffer(base64)).replace(
-            "ÃƒÂ¯Ã‚Â»Ã‚Â¿",
-            ""
-          ),
-          "text/xml"
-        );
-        jQuery(xepOnline.Formatter.__elm).html("");
-        document
-          .getElementById(jQuery(xepOnline.Formatter.__elm).attr("id"))
-          .appendChild(dom.documentElement);
+        // var parser = new DOMParser();
+        // var dom = parser.parseFromString(
+        //   bufferToBinaryString(base64ToBuffer(base64)).replace(
+        //     "ÃƒÂ¯Ã‚Â»Ã‚Â¿",
+        //     ""
+        //   ),
+        //   "text/xml"
+        // );
+        // jQuery(xepOnline.Formatter.__elm).html("");
+        // document
+        //   .getElementById(jQuery(xepOnline.Formatter.__elm).attr("id"))
+        //   .appendChild(dom.documentElement);
       } else {
         // var win = window.open("", "_blank", "titlebar=yes");
         // win.document.title = "XEPOnline Result";
