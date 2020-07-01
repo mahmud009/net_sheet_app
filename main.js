@@ -263,6 +263,7 @@ function enablePdfPrint() {
         }
 
         pdfData = await getPdfData(base64Data);
+        console.log(pdfData);
         printJS({
           printable: pdfData,
           type: "pdf",
