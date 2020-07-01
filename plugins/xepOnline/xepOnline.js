@@ -1220,38 +1220,37 @@ xepOnline.Formatter = {
     xepOnline.Formatter.togglePrintMediaStyle();
   },
   __soapBackSuccess: function (xmlHttpRequest, status) {
-    var base64PDF = jQuery(xmlHttpRequest.responseXML)
-      .find("formatReturn")
-      .text();
-    var objbuilder = "";
-    objbuilder +=
-      '<object width="100%" height="100%" data="data:application/pdf;base64,';
-    objbuilder += base64PDF;
-    objbuilder += '" type="application/pdf" class="internal">';
-    objbuilder += '<embed src="data:application/pdf;base64,';
-    objbuilder += base64PDF;
-    objbuilder += '" type="application/pdf" />';
-    objbuilder += "</object>";
-
-    if (
-      jQuery(xepOnline.Formatter.__container).attr(
-        "data-xeponline-embed-pending"
-      ) === "true"
-    ) {
-      jQuery(xepOnline.Formatter.__elm).html(objbuilder);
-      jQuery(xepOnline.Formatter.__elm).css({
-        height: xepOnline.DEFAULTS.pageHeight,
-      });
-      jQuery(xepOnline.Formatter.__container).remove();
-    } else {
-      // TODO: try catch window open "pop-up blocker"
-      var win = window.open("", "_blank", "titlebar=yes");
-      win.document.title = "XEPOnline PDF Result";
-      win.document.write("<html><body>");
-      win.document.write(objbuilder);
-      win.document.write("</body></html>");
-      layer = jQuery(win.document);
-    }
+    // var base64PDF = jQuery(xmlHttpRequest.responseXML)
+    //   .find("formatReturn")
+    //   .text();
+    // var objbuilder = "";
+    // objbuilder +=
+    //   '<object width="100%" height="100%" data="data:application/pdf;base64,';
+    // objbuilder += base64PDF;
+    // objbuilder += '" type="application/pdf" class="internal">';
+    // objbuilder += '<embed src="data:application/pdf;base64,';
+    // objbuilder += base64PDF;
+    // objbuilder += '" type="application/pdf" />';
+    // objbuilder += "</object>";
+    // if (
+    //   jQuery(xepOnline.Formatter.__container).attr(
+    //     "data-xeponline-embed-pending"
+    //   ) === "true"
+    // ) {
+    //   jQuery(xepOnline.Formatter.__elm).html(objbuilder);
+    //   jQuery(xepOnline.Formatter.__elm).css({
+    //     height: xepOnline.DEFAULTS.pageHeight,
+    //   });
+    //   jQuery(xepOnline.Formatter.__container).remove();
+    // } else {
+    //   // TODO: try catch window open "pop-up blocker"
+    //   var win = window.open("", "_blank", "titlebar=yes");
+    //   win.document.title = "XEPOnline PDF Result";
+    //   win.document.write("<html><body>");
+    //   win.document.write(objbuilder);
+    //   win.document.write("</body></html>");
+    //   layer = jQuery(win.document);
+    // }
   },
   __postBackSuccess: async function (Response) {
     var base64 = jQuery(Response).find("Result").text();
