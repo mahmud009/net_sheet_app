@@ -229,7 +229,7 @@ function settingDynamicValues() {
 
     if (salesValue > 0 && countyCode > 0) {
       let value = (salesValue / 1000) * countyCode;
-      $("#transfer-fees").val(value);
+      $("#transfer-fees").val(value.toFixed(2));
     } else {
       $("#transfer-fees").val("0.00");
     }
@@ -242,7 +242,6 @@ function settingDynamicValues() {
     function () {
       let annualTax = $("#annual-tax").val();
       let days = $("#pro-ration-due").val();
-      console.log(computeDays($("#closing-date").val()));
       let value = (annualTax / 365) * days;
 
       if (annualTax > 0 && days > 0) {
@@ -403,11 +402,9 @@ function calculateAll() {
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 //===================================================
-// jQuery Document ready function
+// Main calculation form submit action
 //===================================================
-$(function () {
-  settingDynamicValues();
-
+function mainFormSubmit() {
   $(".form-button-group").on(
     "click",
     $("#net_sheet_form button[type=submit]"),
@@ -417,4 +414,34 @@ $(function () {
       calculateAll();
     }
   );
+}
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//===================================================
+// Removing unwanted required warning for dynamically
+// generated fields
+//===================================================
+function removeUnwantedWarning() {
+  let allRequired = $(".required");
+  $("input, select").on("change", function () {
+    for (field of allRequired) {
+      let value = $(field).val();
+      if (!isEmpty(value)) {
+        $(field).removeClass("not-validated");
+        $(field).siblings(".validation-error-msg").remove();
+      }
+    }
+  });
+}
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+//===================================================
+// jQuery Document ready function
+//===================================================
+$(function () {
+  settingDynamicValues();
+  mainFormSubmit();
+  removeUnwantedWarning();
 });

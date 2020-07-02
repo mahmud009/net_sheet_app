@@ -179,7 +179,6 @@ form {
 .required-marker {
   font-weight: bold;
   font-size: 6px;
-
   display: inline-block;
   padding-left: 3px;
   transform: translateY(-2px);
@@ -263,6 +262,23 @@ select:focus {
   box-shadow: 0 0 0 1px #00918e inset;
 }
 
+.not-validated {
+  outline: none;
+  border-color: lighten(#d92027, 20%);
+  box-shadow: 0 0 0 1px lighten(#d92027, 20%) inset;
+}
+
+.validation-error-msg {
+  position: absolute;
+  left: 28px;
+  bottom: 0;
+  margin: 0;
+  font-size: 10px;
+  color: lighten(#d92027, 20%);
+  transform: translateY(105%);
+  transition: all 0.3s ease;
+}
+
 .amount-info-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -326,6 +342,7 @@ input.reusable-cost-name {
 }
 
 .field-wrapper {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   .input-icon {

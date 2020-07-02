@@ -290,6 +290,26 @@ select:focus {
           box-shadow: 0 0 0 1px #00918e inset;
 }
 
+.not-validated {
+  outline: none;
+  border-color: #eb7479;
+  -webkit-box-shadow: 0 0 0 1px #eb7479 inset;
+          box-shadow: 0 0 0 1px #eb7479 inset;
+}
+
+.validation-error-msg {
+  position: absolute;
+  left: 28px;
+  bottom: 0;
+  margin: 0;
+  font-size: 10px;
+  color: #eb7479;
+  -webkit-transform: translateY(105%);
+          transform: translateY(105%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 .amount-info-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -377,6 +397,7 @@ input.reusable-cost-name {
 }
 
 .field-wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

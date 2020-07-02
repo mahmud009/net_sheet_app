@@ -150,23 +150,38 @@ function isEmpty(value) {
     return true;
   }
 }
+
 $(".required").on("change", function () {
   let value = $(this).val();
   if (!isEmpty(value)) {
     $(this).removeClass("not-validated");
+    $(this).siblings(".validation-error-msg").remove();
   } else {
     $(this).addClass("not-validated");
+    let msg = `<h6 class="validation-error-msg">This field is required</h6>`;
+    $(msg).insertAfter($(this));
   }
 });
-function validate(field) {
-  let value = $(field).val();
-  if (!isEmpty(value)) {
-    $(this).removeClass("not-validated");
-  } else {
-    $(this).addClass("not-validated");
+
+function validate(section) {
+  let requiredFields = section.find(".required");
+  let filedCount = requiredFields.length;
+  let validationCount = 0;
+  for (field of requiredFields) {
+    let value = $(field).val();
+    if (!isEmpty(value)) {
+      validationCount += 1;
+      $(field).removeClass("not-validated");
+      $(field).siblings(".validation-error-msg").remove();
+    } else {
+      $(field).addClass("not-validated");
+      let msg = `<h6 class="validation-error-msg">This field is required</h6>`;
+      $(msg).insertAfter($(field));
+    }
   }
+
+  return filedCount == validationCount;
 }
-validate($("#prepared-by"));
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -204,13 +219,8 @@ function tabbedView() {
     // After clicking nav button it will go the next section
     // or previous section, so before going anywhere
     // last section's height should be removed from the form height
-    let lastSectionHeight = $(`#section-${activeTab}`).height(); // Get the current section's height, will be used as last section's height later
 
-    // After clicking nav button, current section should be hidden
-    // Active indicator class should be removed
-    $(`#section-${activeTab}`).css({ opacity: 0 });
-    $(`#section-${activeTab}`).css("z-index", "-999");
-    $(".indicator-btn").removeClass("indicator-active");
+    let lastSectionHeight = $(`#section-${activeTab}`).height(); // Get the current section's height, will be used as last section's height later
 
     // Checking an validating the button actions
     // and updating the active section variable
@@ -218,9 +228,23 @@ function tabbedView() {
 
     switch (true) {
       case $(this).data("target") == "next":
+        // If active tab is not validated then this function
+        // immidiately return without doing rest of the function
+        // and validate function will show error on DOM
+        if (!validate($(`#section-${activeTab}`))) return;
+
+        // After clicking nav button, current section should be hidden
+        // Active indicator class should be removed
+        $(`#section-${activeTab}`).css({ opacity: 0 });
+        $(`#section-${activeTab}`).css("z-index", "-999");
+        $(".indicator-btn").removeClass("indicator-active");
+
         if (activeTab < tabCount) activeTab += 1;
         break;
       case $(this).data("target") == "back":
+        $(`#section-${activeTab}`).css({ opacity: 0 });
+        $(`#section-${activeTab}`).css("z-index", "-999");
+        $(".indicator-btn").removeClass("indicator-active");
         if (activeTab > 1) activeTab -= 1;
         break;
     }
@@ -368,8 +392,6 @@ function sendEmail() {
       })
       .outputPdf()
       .then((res) => {
-        $("#send-email-modal").modal("hide");
-        $("#mail-submit .spinner-border").remove();
         Email.send({
           // SecureToken: "a2cd447b-0977-4d4d-a376-c709f8682914",
           // Port: "25",
@@ -390,6 +412,8 @@ function sendEmail() {
             },
           ],
         }).then((message) => {
+          $("#send-email-modal").modal("hide");
+          $("#mail-submit .spinner-border").remove();
           if (message == "OK") {
             let msg = "Mail send succesfull, please check your inbox";
             $("#mail-status .modal-body p").text(msg);
