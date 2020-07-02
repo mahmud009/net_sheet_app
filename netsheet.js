@@ -58,43 +58,47 @@ function calctaxdays(input) {
   let parser = Date.parse(input);
 
   var parts = input.match(/(\d+)/g);
-  // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
-  let date = new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 
-  // Calcualte the close date   3/18/07
-  if (date.getMonth() == 11 || date.getMonth() <= 4) {
-    $("#tax-period-a").text("First Half");
-    $("#tax-period-b").text("First Half");
-  } // if jan-jun = first
-  else if (date.getMonth() >= 5 && date.getMonth() <= 10) {
-    $("#tax-period-a").text("Second Half");
-    $("#tax-period-b").text("Second Half");
-  } // if jul-dec = second
+  let date;
+  if (parts != null) {
+    // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+    date = new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 
-  var clsDate = new Date();
-  clsDate.setYear(date.getFullYear());
-  clsDate.setMonth(date.getMonth());
-  clsDate.setDate(date.getDate());
-  // Calcualte the closest half-year date
-  var postDate = new Date();
-  postDate.setYear(date.getFullYear());
-  if (date.getMonth() >= 6) {
-    postDate.setMonth(6);
-    postDate.setDate(1);
-  } else {
-    postDate.setMonth(0);
-    postDate.setDate(1);
+    // Calcualte the close date   3/18/07
+    if (date.getMonth() == 11 || date.getMonth() <= 4) {
+      $("#tax-period-a").text("First Half");
+      $("#tax-period-b").text("First Half");
+    } // if jan-jun = first
+    else if (date.getMonth() >= 5 && date.getMonth() <= 10) {
+      $("#tax-period-a").text("Second Half");
+      $("#tax-period-b").text("Second Half");
+    } // if jul-dec = second
+
+    var clsDate = new Date();
+    clsDate.setYear(date.getFullYear());
+    clsDate.setMonth(date.getMonth());
+    clsDate.setDate(date.getDate());
+    // Calcualte the closest half-year date
+    var postDate = new Date();
+    postDate.setYear(date.getFullYear());
+    if (date.getMonth() >= 6) {
+      postDate.setMonth(6);
+      postDate.setDate(1);
+    } else {
+      postDate.setMonth(0);
+      postDate.setDate(1);
+    }
+    //alert('postdate: ' + postDate);
+    // Calcualte the difference
+    var datediff;
+    datediff = days_between(postDate, clsDate);
+    //alert('totdays: ' + datediff);
+    // Add 6 months for the delay
+    datediff = datediff + 182;
+    //alert('totdays plus six months: ' + datediff);
+    // $("#pro-ration-due").val(datediff);
+    return Math.round(datediff);
   }
-  //alert('postdate: ' + postDate);
-  // Calcualte the difference
-  var datediff;
-  datediff = days_between(postDate, clsDate);
-  //alert('totdays: ' + datediff);
-  // Add 6 months for the delay
-  datediff = datediff + 182;
-  //alert('totdays plus six months: ' + datediff);
-  // $("#pro-ration-due").val(datediff);
-  return Math.round(datediff);
 }
 
 function days_between(date1, date2) {

@@ -191,10 +191,9 @@ form {
 
 .required-marker {
   font-weight: bold;
-  font-size: 8px;
-  color: #004543;
+  font-size: 6px;
   display: inline-block;
-  padding-right: 3px;
+  padding-left: 3px;
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
 }
