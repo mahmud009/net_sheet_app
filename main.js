@@ -1,24 +1,25 @@
-xepOnline.Formatter.Format("result-contents", {
-  render: "embed",
-  filename: `seller_net_sheet`,
-});
+// xepOnline.Formatter.Format("result-contents", {
+//   render: "embed",
+//   filename: `seller_net_sheet`,
+// });
 
-$(document).on("xepOnlineStatus", async function (e, s) {
-  if (s == "Finished") {
-    function getPdfData(data) {
-      return new Promise((res, rej) => {
-        if (data) {
-          res(data);
-        } else {
-          rej();
-        }
-      });
-    }
+// $(document).on("xepOnlineStatus", async function (e, s) {
+//   if (s == "Finished") {
+//     function getPdfData(data) {
+//       return new Promise((res, rej) => {
+//         if (data) {
+//           res(data);
+//         } else {
+//           rej();
+//         }
+//       });
+//     }
 
-    pdfData = await getPdfData(base64Data);
-    console.log(pdfData);
-  }
-});
+//     pdfData = await getPdfData(base64Data);
+//     console.log(pdfData);
+//   }
+// });
+
 // ==============================================
 // Prevent Email button event Bubbling using
 // Below tricks
@@ -261,44 +262,58 @@ function tabbedView() {
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+let spinner = `<div class="spinner-border action-btn-spinner"
+role="status">
+</div>`;
 function enablePdfPrint() {
   // Enabling print button
   $("#btn-print").on("click", function (e) {
     e.preventDefault();
 
-    xepOnline.Formatter.Format("result-contents", {
-      render: "embed",
-      filename: `seller_net_sheet`,
-    });
-
-    $(document).on("xepOnlineStatus", async function (e, s) {
-      if (s == "Finished") {
-        function getPdfData(data) {
-          return new Promise((res, rej) => {
-            if (data) {
-              res(data);
-            } else {
-              rej();
-            }
-          });
-        }
-
-        pdfData = await getPdfData(base64Data);
+    $(this).append(spinner);
+    let element = $("#main-result-body").html();
+    let pdfWorker = html2pdf();
+    pdfWorker
+      .from(element)
+      .set({
+        image: { type: "png", quality: 1 },
+        html2canvas: { scale: 2 },
+        margin: [1, 1],
+        jsPDF: {
+          unit: "in",
+        },
+      })
+      .outputPdf()
+      .then((res) => {
         printJS({
-          printable: pdfData,
+          printable: btoa(res),
           type: "pdf",
           base64: true,
         });
-      }
-    });
+        $(".result-action-buttons button .spinner-border").remove();
+      });
   });
 
   $("#btn-pdf").on("click", function (e) {
     e.preventDefault();
-    xepOnline.Formatter.Format("result-contents", {
-      render: "download",
-      filename: `seller_net_sheet`,
-    });
+    $(this).append(spinner);
+    let element = $("#main-result-body").html();
+    let pdfWorker = html2pdf();
+    pdfWorker
+      .from(element)
+      .set({
+        image: { type: "png", quality: 1 },
+        html2canvas: { scale: 2 },
+        margin: [1, 1],
+        jsPDF: {
+          unit: "in",
+        },
+      })
+      .outputPdf()
+      .then((res) => {
+        $(".result-action-buttons button .spinner-border").remove();
+      })
+      .save("Net_sheet.pdf");
   });
 
   $("#btn-email").on("click", function (e) {
@@ -309,32 +324,29 @@ function enablePdfPrint() {
 function sendEmail() {
   $("#send-email-form").on("submit", function (e) {
     e.preventDefault();
+    console.log($(this).find(".button[type=submit]"));
+    $("#mail-submit").append(spinner);
     let pdfData;
     // Email API Key
     // 193F79D80970CA34A7642B44C3E744CA1CFE1EDBAB47F21569137F6A3C5DA52AE5A87AD9B6FA5B5410E9F3D9F0574283
     // Security Token "a2cd447b-0977-4d4d-a376-c709f8682914"
 
-    xepOnline.Formatter.Format("result-contents", {
-      render: "embed",
-      filename: `seller_net_sheet`,
-    });
-
-    $(document).on("xepOnlineStatus", async function (e, s) {
-      if (s == "Finished" && ModalOpen == true) {
-        function getPdfData(data) {
-          return new Promise((res, rej) => {
-            if (data) {
-              res(data);
-            } else {
-              rej();
-            }
-          });
-        }
-
-        pdfData = await getPdfData(base64Data);
-
+    let element = $("#main-result-body").html();
+    let pdfWorker = html2pdf();
+    pdfWorker
+      .from(element)
+      .set({
+        image: { type: "png", quality: 1 },
+        html2canvas: { scale: 1 },
+        margin: [1, 1],
+        jsPDF: {
+          unit: "in",
+        },
+      })
+      .outputPdf()
+      .then((res) => {
         $("#send-email-modal").modal("hide");
-
+        $("#mail-submit .spinner-border").remove();
         Email.send({
           // SecureToken: "a2cd447b-0977-4d4d-a376-c709f8682914",
           // Port: "25",
@@ -351,7 +363,7 @@ function sendEmail() {
           Attachments: [
             {
               name: "net_sheet.pdf",
-              data: pdfData,
+              data: btoa(res),
             },
           ],
         }).then((message) => {
@@ -361,13 +373,9 @@ function sendEmail() {
           } else {
             $("#mail-status .modal-body p").text(message);
           }
-
           $("#mail-status").modal();
         });
-      }
-    });
-
-    // let stat = await getPdfData(pdfData);
+      });
   });
 }
 //=========================

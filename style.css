@@ -603,7 +603,7 @@ input.reusable-cost-name {
 }
 
 .result-logo img {
-  width: 80px;
+  width: 90px;
 }
 
 .result-heading {
@@ -620,5 +620,16 @@ input.reusable-cost-name {
   color: #abb1bb;
   padding-top: 20px;
   text-align: justify;
+}
+
+.action-btn-spinner {
+  width: 15px;
+  height: 15px;
+  border-width: 1px;
+  margin-left: 5px;
+}
+
+#mail-submit .spinner-border {
+  margin-bottom: 3px;
 }
 /*# sourceMappingURL=style.css.map */
