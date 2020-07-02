@@ -414,13 +414,16 @@ function sendEmail() {
         }).then((message) => {
           $("#send-email-modal").modal("hide");
           $("#mail-submit .spinner-border").remove();
-          if (message == "OK") {
-            let msg = "Mail send succesfull, please check your inbox";
-            $("#mail-status .modal-body p").text(msg);
-          } else {
-            $("#mail-status .modal-body p").text(message);
-          }
-          $("#mail-status").modal();
+
+          setTimeout(() => {
+            if (message == "OK") {
+              let msg = "Mail send succesfull, please check your inbox";
+              $("#mail-status .modal-body p").text(msg);
+            } else {
+              $("#mail-status .modal-body p").text(message);
+            }
+            $("#mail-status").modal();
+          }, 500);
         });
       });
   });
