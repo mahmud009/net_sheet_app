@@ -176,6 +176,12 @@ form {
   }
 }
 
+.basic-info-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .required-marker {
   font-weight: bold;
   font-size: 6px;
@@ -460,6 +466,11 @@ input.reusable-cost-name {
 #result-tables {
   width: 100%;
   padding-bottom: 30px;
+}
+
+.result-company-contact {
+  vertical-align: middle !important;
+  font-size: 14px;
 }
 
 #result-contents {

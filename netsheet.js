@@ -290,6 +290,7 @@ function resultSheetGenerate() {
     $("#prepared-by"),
     $("#seller-name"),
     $("#property-address"),
+    $("#seller-contact"),
     $("#calc-sales-price"),
     $("#mortgage-balance-1"),
     $("#mortgage-balance-2"),
@@ -312,6 +313,7 @@ function resultSheetGenerate() {
     $("#reusable-cost-1"),
     $("#reusable-cost-2"),
     $("#reusable-cost-3"),
+    $("#wire-transfer-fees"),
   ];
 
   let idMap = elementsToCalculate.map((m) => {
@@ -330,15 +332,20 @@ function resultSheetGenerate() {
     }
 
     switch (true) {
-      case $("#cnt-seller-name").text() == "0.00 $":
+      case $("#cnt-seller-contact").text() == "$ 0.00":
+        $("#cnt-seller-contact").text("-");
+        break;
+      case $("#cnt-seller-name").text() == "$ 0.00":
         $("#cnt-seller-name").text("-");
         break;
-      case $("#cnt-prepared-by").text() == "0.00 $":
+      case $("#cnt-prepared-by").text() == "$ 0.00":
         $("#cnt-prepared-by").text("-");
-      case $("#cnt-property-address").text() == "0.00 $":
+      case $("#cnt-property-address").text() == "$ 0.00":
         $("#cnt-property-address").text("-");
     }
   }
+
+  $("#cnt-seller-contact").text($("#seller-contact").val());
 }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -380,6 +387,7 @@ function calculateAll() {
     Number($("#reusable-cost-3").val()),
     Number($("#courier-others").val()),
     Number($("#record-service").val()),
+    Number($("#wire-transfer-fees").val()),
   ];
 
   let expenses = costs.reduce((a, b) => a + b);

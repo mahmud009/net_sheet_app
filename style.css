@@ -189,6 +189,17 @@ form {
   text-align: center;
 }
 
+.basic-info-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .required-marker {
   font-weight: bold;
   font-size: 6px;
@@ -537,6 +548,11 @@ input.reusable-cost-name {
 #result-tables {
   width: 100%;
   padding-bottom: 30px;
+}
+
+.result-company-contact {
+  vertical-align: middle !important;
+  font-size: 14px;
 }
 
 #result-contents {

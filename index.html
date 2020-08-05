@@ -117,7 +117,16 @@
                                 </div>
                             </div>
 
-                            <div class="input-wrapper select-wrapper wide-input">
+                            <div class="input-wrapper">
+                                <label for="seller-contact">Seller Contact No.</label>
+                                <div class="field-wrapper">
+                                    <input name="seller-contact" type="text" id="seller-contact"
+                                        placeholder="Enter contact no.">
+                                    <span class="input-icon text-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-wrapper select-wrapper">
                                 <label for="select-county">Select County<span class="required-marker"><i
                                             class="fas fa-star"></i></span></label>
                                 <div class="field-wrapper">
@@ -153,7 +162,7 @@
                                 </div>
                             </div>
 
-                            <div class="input-wrapper">
+                            <div class="input-wrapper wide-input">
                                 <label for="annual-tax">Annual Property Tax<span class="required-marker"><i
                                             class="fas fa-star"></i></span></label>
                                 <div class="field-wrapper">
@@ -162,14 +171,14 @@
                                 </div>
                             </div>
 
-                            <div class="input-wrapper">
+                            <!-- <div class="input-wrapper">
                                 <label for="monthly-tax">Monthly Property Tax<span class="required-marker"><i
                                             class="fas fa-star"></i></span></label>
                                 <div class="field-wrapper">
                                     <input class="required" name="monthly-tax" type="number" id="monthly-tax">
                                     <span class="input-icon dollar-icon"></span>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="input-wrapper days-wrapper">
                                 <label for="pro-ration-due">Proration Due at Closing for<span class="required-marker"><i
@@ -193,7 +202,7 @@
 
                             <div class="input-wrapper wide-input">
                                 <label for="second-half-tax">Enter <span id="tax-period-a">second half</span> tax
-                                    here</label>
+                                    here "Optional"</label>
                                 <div class="field-wrapper">
                                     <input readonly name="second-half-tax" type="number" id="second-half-tax">
                                     <span class="input-icon dollar-icon"></span>
@@ -293,7 +302,7 @@
                             <h5>Commissions</h5>
                             <div class="amount-info-wrapper">
                                 <div class="input-wrapper">
-                                    <label for="s-estate-fee-percent">Real Estate Fee (Selling Side %)</label>
+                                    <label for="s-estate-fee-percent">Realtor Commission % (Selling Side)</label>
                                     <div class="field-wrapper">
                                         <input name="s-estate-fee-percent" type="number" id="s-estate-fee-percent">
                                         <span class="input-icon percent-icon"></span>
@@ -302,7 +311,7 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="s-estate-fee-amount">Real Estate Fee (Selling Side $)</label>
+                                    <label for="s-estate-fee-amount">Realtor Broker Fee (Selling Side)</label>
                                     <div class="field-wrapper">
                                         <input name="s-estate-fee-amount" type="number" id="s-estate-fee-amount">
                                         <span class="input-icon dollar-icon"></span>
@@ -312,7 +321,7 @@
 
 
                                 <div class="input-wrapper">
-                                    <label for="l-estate-fee-percent">Real Estate Fee (Listing Side)</label>
+                                    <label for="l-estate-fee-percent">Realtor Commission % (Listing Side)</label>
                                     <div class="field-wrapper">
                                         <input name="l-estate-fee-percent" type="number" id="l-estate-fee-percent">
                                         <span class="input-icon percent-icon"></span>
@@ -320,7 +329,7 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="l-estate-fee-amount">Real Estate Fee (Listing Side)</label>
+                                    <label for="l-estate-fee-amount">Realtor Broker Fee (Listing Side)</label>
                                     <div class="field-wrapper">
                                         <input name="l-estate-fee-amount" type="number" id="l-estate-fee-amount">
                                         <span class="input-icon dollar-icon"></span>
@@ -367,7 +376,7 @@
                                 </div>
 
                                 <div class="input-wrapper">
-                                    <label for="document-prep">Document Prep (Deed)</label>
+                                    <label for="document-prep">Attorney Fees</label>
                                     <div class="field-wrapper">
                                         <input name="document-prep" type="number" id="document-prep">
                                         <span class="input-icon dollar-icon"></span>
@@ -386,6 +395,13 @@
                                     <label for="record-service">Recording Service Fee:</label>
                                     <div class="field-wrapper">
                                         <input name="record-service" type="number" id="record-service">
+                                        <span class="input-icon dollar-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="input-wrapper wide-input">
+                                    <label for="wire-transfer-fees">Wire Transfer Fees ( if applicable):</label>
+                                    <div class="field-wrapper">
+                                        <input name="wire-transfer-fees" type="number" id="wire-transfer-fees">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -467,11 +483,15 @@
                         <div class="result-body" id="main-result-body">
                             <table id="result-contents">
                                 <tr style="border-bottom: 1px solid #525a6c;">
+                                    
                                     <td class="result-logo">
                                         <img id="result-logo-img" src="" alt="logo">
                                     </td>
-                                    <td class="result-heading" colspan="3">
-                                        Seller's Net Sheet
+                                    <td class="result-company-contact">
+                                        01913457690
+                                    </td>
+                                    <td class="result-heading" colspan="2">
+                                        SELLER NET PROCEEDS
                                     </td>
                                 </tr>
                                 <tr>
@@ -483,15 +503,17 @@
 
                                 <tr>
                                     <td class="cell-data" colspan="2" id="cnt-seller-name"></td>
-                                    <td class="cell-data res-address" id="cnt-property-address" colspan="2" rowspan="3"
+                                    <td class="cell-data res-address" id="cnt-property-address" colspan="2" 
                                         text-align: justify;"></td>
                                 </tr>
 
                                 <tr>
                                     <td class="cell-heading" colspan="2">Prepared By :</td>
+                                    <td class="cell-heading" colspan="2">Seller Contact No. :</td>
                                 </tr>
                                 <tr>
                                     <td class="cell-data" colspan="2" id="cnt-prepared-by"></td>
+                                    <td class="cell-data" colspan="2" id="cnt-seller-contact"></td>
                                 </tr>
 
                                 <tr>
@@ -553,13 +575,13 @@
                                     <td colspan="4" class="particulars-title">REAL ESTATE COMMISSIONS</td>
                                 </tr>
                                 <tr>
-                                    <td class="particular-name" colspan="2">Real Estate Fee (Selling Side):</td>
+                                    <td class="particular-name" colspan="2">Realtor Broker Fee (Selling Side):</td>
                                     <td class="dollar-sign" style="text-align: right;"></td>
                                     <td class="particular-amount" id="cnt-s-estate-fee-amount"
                                         style="text-align: right;"></td>
                                 </tr>
                                 <tr>
-                                    <td class="particular-name" colspan="2">Real Estate Fee (Listing Side):</td>
+                                    <td class="particular-name" colspan="2">Realtor Broker Fee (Listing Side):</td>
                                     <td class="dollar-sign" style="text-align: right;"></td>
                                     <td class="particular-amount" id="cnt-l-estate-fee-amount"
                                         style="text-align: right;"></td>
@@ -589,7 +611,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="particular-name" colspan="2">Document Prep (Deed):</td>
+                                    <td class="particular-name" colspan="2"> Attorney Fees:</td>
                                     <td class="dollar-sign" style="text-align: right;"></td>
                                     <td class="particular-amount" id="cnt-document-prep" style="text-align: right;">
                                     </td>
@@ -606,6 +628,13 @@
                                     <td class="particular-name" colspan="2">Recording Service Fee:</td>
                                     <td class="dollar-sign" style="text-align: right;"></td>
                                     <td class="particular-amount" id="cnt-record-service" style="text-align: right;">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="particular-name" colspan="2">Wire Transfer Fees ( if applicable):</td>
+                                    <td class="dollar-sign" style="text-align: right;"></td>
+                                    <td class="particular-amount" id="cnt-wire-transfer-fees" style="text-align: right;">
                                     </td>
                                 </tr>
 

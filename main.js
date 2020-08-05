@@ -19,7 +19,7 @@ function initForms() {
   accounting.settings = {
     currency: {
       symbol: " $", // default currency symbol is '$'
-      format: "%v%s", // controls output: %s = symbol, %v = value/number (can be object: see below)
+      format: "%s %v", // controls output: %s = symbol, %v = value/number (can be object: see below)
       decimal: ".", // decimal point separator
       thousand: ",", // thousands separator
       precision: 2, // decimal places
@@ -78,12 +78,13 @@ function initForms() {
   $("input[type=number]").attr("value", "0.00");
   $(".days-wrapper input").attr("value", "0");
   $("#overnight-shipping").attr("value", "10.77");
-  $("#seller-closing-fee").attr("value", "175.00");
+  $("#seller-closing-fee").attr("value", "160.00");
   $("#title-commitment-binder").attr("value", "50.00");
-  $("#title-search-fee").attr("value", "250.00");
-  $("#document-prep").attr("value", "75.00");
+  $("#title-search-fee").attr("value", "225.00");
+  $("#document-prep").attr("value", "65.00");
   $("#courier-others").attr("value", "35.00");
-  $("#record-service").attr("value", "30.00");
+  $("#record-service").attr("value", "55.00");
+  $("#wire-transfer-fees").attr("value", "35.00");
 
   // If user accidentaly leave an input box empty
   // Then zero will be added automatically
@@ -428,6 +429,29 @@ function sendEmail() {
       });
   });
 }
+
+// Function to remove 0.00 when clicking on the nmber field
+//==========================================================
+function clearZero() {
+  $("input[type=number]:not(#second-half-tax, #pro-ration-due)").on(
+    "click",
+    function () {
+      if ($(this).val() == 0) {
+        $(this).val("");
+      }
+    }
+  );
+
+  $("input[type=number]:not(#second-half-tax, #pro-ration-due)").on(
+    "blur",
+    function () {
+      if (!$(this).val() > 0) {
+        $(this).val("0.00");
+      }
+    }
+  );
+}
+
 //=========================
 // Document ready function
 //=========================
@@ -436,4 +460,5 @@ $(function () {
   tabbedView();
   enablePdfPrint();
   sendEmail();
+  clearZero();
 });
