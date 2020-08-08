@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="plugins/printjs/print.min.css">
-    <link rel="stylesheet" href="style.css?v=1.1.2">
+    <link rel="stylesheet" href="style.css?v=1.1.3">
 </head>
 
 <body>
@@ -162,6 +162,10 @@
                                 </div>
                             </div>
 
+                            <div class="input-wrapper">
+                                <label for="date-preview" id="date-preview"></label>
+                            </div>
+
                             <div class="input-wrapper wide-input">
                                 <label for="annual-tax">Annual Property Tax<span class="required-marker"><i
                                             class="fas fa-star"></i></span></label>
@@ -251,7 +255,6 @@
                         </div>
 
                         <div class="input-with-header">
-
                             <h5>Taxes</h5>
                             <div class="amount-info-wrapper">
                                 <div class="input-wrapper wide-input">
@@ -353,7 +356,7 @@
                                 <div class="input-wrapper">
                                     <label for="seller-closing-fee">Seller Closing Fee</label>
                                     <div class="field-wrapper">
-                                        <input name="seller-closing-fee" type="number" id="seller-closing-fee">
+                                        <input name="seller-closing-fee" readonly type="number" id="seller-closing-fee">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -361,7 +364,7 @@
                                 <div class="input-wrapper">
                                     <label for="title-commitment-binder">Title Commitment Binder</label>
                                     <div class="field-wrapper">
-                                        <input name="title-commitment-binder" type="number"
+                                        <input name="title-commitment-binder" readonly type="number"
                                             id="title-commitment-binder">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
@@ -370,7 +373,7 @@
                                 <div class="input-wrapper">
                                     <label for="title-search-fee">Title Search Fee</label>
                                     <div class="field-wrapper">
-                                        <input name="title-search-fee" type="number" id="title-search-fee">
+                                        <input name="title-search-fee" readonly type="number" id="title-search-fee">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -378,7 +381,7 @@
                                 <div class="input-wrapper">
                                     <label for="document-prep">Attorney Fees</label>
                                     <div class="field-wrapper">
-                                        <input name="document-prep" type="number" id="document-prep">
+                                        <input name="document-prep" readonly type="number" id="document-prep">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -386,7 +389,7 @@
                                 <div class="input-wrapper">
                                     <label for="courier-others">Courier, Express Mail & Handling</label>
                                     <div class="field-wrapper">
-                                        <input name="courier-others" type="number" id="courier-others">
+                                        <input name="courier-others" readonly type="number" id="courier-others">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -394,14 +397,14 @@
                                 <div class="input-wrapper">
                                     <label for="record-service">Recording Service Fee:</label>
                                     <div class="field-wrapper">
-                                        <input name="record-service" type="number" id="record-service">
+                                        <input name="record-service" readonly type="number" id="record-service">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
                                 <div class="input-wrapper wide-input">
                                     <label for="wire-transfer-fees">Wire Transfer Fees ( if applicable):</label>
                                     <div class="field-wrapper">
-                                        <input name="wire-transfer-fees" type="number" id="wire-transfer-fees">
+                                        <input name="wire-transfer-fees" readonly type="number" id="wire-transfer-fees">
                                         <span class="input-icon dollar-icon"></span>
                                     </div>
                                 </div>
@@ -488,7 +491,7 @@
                                         <img id="result-logo-img" src="" alt="logo">
                                     </td>
                                     <td class="result-company-contact">
-                                        01913457690
+                                        ‭+1 (614) 866-9966‬
                                     </td>
                                     <td class="result-heading" colspan="2">
                                         SELLER NET PROCEEDS
@@ -517,7 +520,7 @@
                                 </tr>
 
                                 <tr>
-                                    <th colspan="2">Particulars-</th>
+                                    <th colspan="2"></th>
                                     <th></th>
                                     <th style="text-align: right;">Amount-</th>
                                 </tr>
@@ -727,8 +730,8 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="plugins/printjs/print.min.js"></script>
     <script src="counties.js"></script>
-    <script src="main.js?v=1.2.0"></script>
-    <script src="netsheet.js?v=1.2.1"></script>
+    <script src="main.js?v=1.2.1"></script>
+    <script src="netsheet.js?v=1.2.2"></script>
 
 </body>
 

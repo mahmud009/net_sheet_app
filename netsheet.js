@@ -64,7 +64,7 @@ function calctaxdays(input) {
     // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
     date = new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 
-    // Calcualte the close date   3/18/07
+    // Calcualte the close date
     if (date.getMonth() == 11 || date.getMonth() <= 4) {
       $("#tax-period-a").text("First Half");
       $("#tax-period-b").text("First Half");
@@ -92,6 +92,13 @@ function calctaxdays(input) {
     // Calcualte the difference
     var datediff;
     datediff = days_between(postDate, clsDate);
+    $("#date-preview").html(`
+      <span>Tax Proration dates : from ${
+        postDate.getMonth() + 1
+      }/${postDate.getDate()}/${postDate.getFullYear()} to ${
+      clsDate.getMonth() + 1
+    }/${clsDate.getDate()}/${clsDate.getFullYear()}, Total : ${datediff} Days</span>
+    `);
     //alert('totdays: ' + datediff);
     // Add 6 months for the delay
     datediff = datediff + 182;
@@ -445,6 +452,21 @@ function removeUnwantedWarning() {
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--End of function--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
+// Function to show county in transfer / convenayance fees
+//==========================================================
+function showCountyInTransfer() {
+  $("#select-county").on("change", function () {
+    $("#transfer-fees")
+      .parent(".field-wrapper")
+      .siblings("label")
+      .append(` <span id="county-view">(${$("#select-county").val()})</span>`);
+
+    $("#cnt-transfer-fees")
+      .siblings(".particular-name")
+      .append(` <span id="county-view">(${$("#select-county").val()})</span>`);
+  });
+}
+
 //===================================================
 // jQuery Document ready function
 //===================================================
@@ -452,4 +474,5 @@ $(function () {
   settingDynamicValues();
   mainFormSubmit();
   removeUnwantedWarning();
+  showCountyInTransfer();
 });
